@@ -168,6 +168,10 @@ while True:
                 if 'get forecast' in email_txt(msg.body):
                     requested_forecasts.append(msg)
     
+        print(requested_forecasts)
+
+        time.sleep(60)
+
     except Exception as e:
             with open(event_log_file, "a") as file:
                 file.write(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + 'ERROR: ' + str(e) + "\n")
