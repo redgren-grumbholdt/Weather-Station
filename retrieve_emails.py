@@ -84,9 +84,9 @@ def retrieve_emails(secret_file, retrievals):
                 data = payload.get('body')['data']
             data = data.replace("-", "+").replace("_", "/")
             decoded_data = base64.b64decode(data)
-            print(decoded_data)
             # Now, the data obtained is in lxml. So, we will parse
             # it with BeautifulSoup library
+            soup = BeautifulSoup(decoded_data, "lxml")
             print(soup)
             body = soup.body()
 
