@@ -1,9 +1,9 @@
 import datetime as dt
 import requests
 import json
+from dotenv import load_dotenv
 
 BASE_URL = "https://my.meteoblue.com/packages/basic-3h_basic-day_clouds-3h_trend-day"
-METEOBLUE_API_KEY = 'HgCp2KIVuGfWvLYo'
 LOCATION = "lat=62.920&lon=-151.070"
 ELEVATION = ""
 
