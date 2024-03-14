@@ -84,10 +84,10 @@ def retrieve_emails(secret_file, retrievals):
                 data = payload.get('body')['data']
             data = data.replace("-", "+").replace("_", "/")
             decoded_data = base64.b64decode(data)
-
+            print(decoded_data)
             # Now, the data obtained is in lxml. So, we will parse
             # it with BeautifulSoup library
-            soup = BeautifulSoup(decoded_data, "lxml")
+            print(soup)
             body = soup.body()
 
             plaintext_messages.append(Message(date, sender, subject, body))
@@ -160,6 +160,8 @@ while True:
         print("\rchecking for forecast requests...", ' '*20, end='')
         # retrieves messages from gmail
         msgs = retrieve_emails(Secret_File, 50)
+        
+        print(msgs)
 
         # makes list of messages that are forecast requests and new
         requested_forecasts = []
