@@ -21,7 +21,6 @@ def main():
         url += "&"
     url += "format=json"
 
-    print(url)
     response = requests.get(url).json()
 
     with open("recent_forecast.json", "w") as file:

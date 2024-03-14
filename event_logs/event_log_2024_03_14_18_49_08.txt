@@ -1,0 +1,2 @@
+EVENT LOG:
+03/14/2024, 18:49:08      ERROR: ('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})
