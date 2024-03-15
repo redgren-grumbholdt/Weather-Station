@@ -1,0 +1,4 @@
+EVENT LOG:
+03/15/2024, 17:56:00      Ignoring emails previous to Wed, 19 Apr 2023 20:39:33 -0400
+03/15/2024, 17:56:00      Checking Emails...
+03/15/2024, 17:56:04      ERROR: can only concatenate str (not "list") to str

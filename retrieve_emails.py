@@ -8,6 +8,7 @@ import pickle
 import os.path
 import base64
 from email.utils import parsedate_tz, mktime_tz
+import traceback
 
 class Message:
     def __init__(self, date, sender, subject, body):
@@ -127,7 +128,6 @@ def set_up_logs(event_log, ignore_log, default_ignore_previous_to):
             else:
                 with open(ignore_log, "w") as file:
                     file.write(default_ignore_previous_to)
-        print("Ignoring emails previous to: ", ignore_previous_to)
     # If the file does not exist, create it and set it's contents to the default previously read date
     except FileNotFoundError:
         print(f"{ignore_log} does not exist. Creating it now...")
@@ -136,28 +136,32 @@ def set_up_logs(event_log, ignore_log, default_ignore_previous_to):
         with open(ignore_log, "r") as file:
             # Read the contents of the file into a variable
             ignore_previous_to = file.read()
-        print("Ignoring emails previous to: ", ignore_previous_to)
 
 
 def main(ignore_log):
-    print("\rchecking for forecast requests...", ' '*20, end='')
+    print("\rchecking for forecast requests...", ' '*20, end='' + "\n")
     # retrieves messages from gmail
     msgs = retrieve_emails(Secret_File, 50)
 
     # makes list of messages that are forecast requests and new
     requested_forecasts = []
     for msg in msgs:
-        print(msg.date)
-        print(parsedate_tz(msg.date))
-        print(mktime_tz(parsedate_tz(msg.date)))
         with open(ignore_log, "r") as file:
             # Read the contents of the file into a variable
             ignore_previous_to = file.read()
         if mktime_tz(parsedate_tz(msg.date)) > mktime_tz(parsedate_tz(ignore_previous_to)):
             if 'get forecast' in email_txt(msg.body):
                 requested_forecasts.append(msg)
-
-    print(requested_forecasts)
+    
+    if os.environ.get("NEW_REQUESTS") == None:
+        os.environ["NEW_REQUESTS"] = os.path.join(dir_path, 'new_requests.pickle')
+    with open(os.environ["NEW_REQUESTS"], 'wb') as file:
+        pickle.dump(requested_forecasts, file)
+    
+    for request in requested_forecasts:
+        with open(os.environ["EVENT_LOG_FILE"], "a") as file:
+            file.write(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + 'Received forecast request from ' + str(request.date) + "\n")
+    
 
 
 # Define the SCOPES. If modifying it, delete the token.pickle file.
@@ -170,32 +174,34 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 Secret_File = os.path.join(dir_path, 'client_secret_114502949276-qujopcn3v6e65fdkjm1f7mikmdcicbad.apps.googleusercontent.com.json')
 
 default_ignore_previous_to = 'Wed, 19 Apr 2023 20:39:33 -0400'
-default_mountain = "Mount-Hunter"
-default_elevation = '4442'
 
-event_log_file = os.path.join(dir_path, 'event_logs/event_log_' + datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + '.txt')
+if os.environ.get("EVENT_LOG_FILE") == None:
+    os.environ["EVENT_LOG_FILE"] = os.path.join(dir_path, 'event_logs/event_log_' + datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + '.txt')
 prev_read_log_file = os.path.join(dir_path, "previously_read_log.txt")
-set_up_logs(event_log_file, prev_read_log_file, default_ignore_previous_to)
+set_up_logs(os.environ["EVENT_LOG_FILE"], prev_read_log_file, default_ignore_previous_to)
 
-while True:
+success = False
+while not success:
     try:
+        with open(os.environ["EVENT_LOG_FILE"], "a") as file:
+                with open(prev_read_log_file, "r") as ignore_log_file:
+                    file.write(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + 'Ignoring emails previous to ' + ignore_log_file.read() + "\n")
+                file.write(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + 'Checking Emails...' + "\n")
         main(prev_read_log_file)
-
-        time.sleep(60)
+        success = True
 
     except Exception as e:
-            with open(event_log_file, "a") as file:
+            with open(os.environ["EVENT_LOG_FILE"], "a") as file:
                 file.write(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + 'ERROR: ' + str(e) + "\n")
-            if e.args[0]['status'] == '429':
+            if hasattr(e.args[0], 'status'):
+                if e.args[0]['status'] == '429':
 
-                (datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + "user rate limit exceeded when attempting to retrieve emails")
-                for i in range(910):
-                    message = f"\rnext check in {(910 - i)} seconds..."
-                    print(message, ' '*20, end="\r")
-                    time.sleep(1)
+                    (datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + "user rate limit exceeded when attempting to retrieve emails")
+                    for i in range(910):
+                        message = f"\rnext check in {(910 - i)} seconds..."
+                        print(message, ' '*20, end="\r")
+                        time.sleep(1)
+                continue
             else:
-                for i in range(60):
-                    message = f"\rnext check in {(60 - i)} seconds..."
-                    print(message, ' '*20, end="\r")
-                    time.sleep(1)
-            continue
+                print(traceback.format_exc())
+                break

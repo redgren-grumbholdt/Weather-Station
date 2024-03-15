@@ -1,0 +1,4 @@
+EVENT LOG:
+03/15/2024, 17:44:29      Ignoring emails previous to Wed, 19 Apr 2023 20:39:33 -0400
+03/15/2024, 17:44:29      Checking Emails...
+03/15/2024, 17:44:33      ERROR: list index out of range

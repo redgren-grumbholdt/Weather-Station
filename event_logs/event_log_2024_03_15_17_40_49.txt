@@ -1,0 +1,375 @@
+EVENT LOG:
+03/15/2024, 17:40:49      Ignoring emails previous to Wed, 19 Apr 2023 20:39:33 -0400
+03/15/2024, 17:40:49      Checking Emails...
+03/15/2024, 17:40:53      Request from Sat, 10 Jun 2023 13:47:43 +0000 (UTC): [<p>get forecast
+model: $meteoblue14$
+mountain: $Begguya$
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db69b9-38e5-0b2f-000d-3aa728400000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+Benjamin Dewey sent this message from: Lat 62.969395 Lon -151.168978
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</p>]
+03/15/2024, 17:40:53      Request from Wed, 17 May 2023 00:20:36 +0000 (UTC): [<p>get forecast
+model: $meteoblue7$
+mountain: $SE Fork Kahiltna$
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db566c-82d6-ee2d-6045-bd2d98140000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</p>]
+03/15/2024, 17:40:53      Request from Sun, 14 May 2023 16:15:36 +0000 (UTC): [<p>get forecast
+model: $meteoblue7$
+mountain: $SE Fork Kahiltna$
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db5496-6f20-9f8e-000d-3aa7780f0000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</p>]
+03/15/2024, 17:40:53      Request from Fri, 12 May 2023 23:02:08 +0000 (UTC): [<p>get forecast
+model: $meteoblue7$
+mountain: $Begguya$
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db533c-e55e-e69b-000d-3aa7780f0000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</p>]
+03/15/2024, 17:40:53      Request from Fri, 12 May 2023 17:29:11 +0000 (UTC): [<p>get forecast
+model: $meteoblue7$
+mountain: $Begguya$
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db530e-63a5-5a00-0022-484758110000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</p>]
+03/15/2024, 17:40:53      Request from Thu, 11 May 2023 06:15:32 +0000 (UTC): [<p>get forecast
+model: $meteoblue7$
+mountain: $Begguya$
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db51e7-1e7b-5fb9-0022-484758110000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</p>]
+03/15/2024, 17:40:53      Request from Wed, 10 May 2023 03:13:12 +0000 (UTC): [<p>get forecast
+model: $meteoblue7$
+mountain: $Begguya$
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db5104-7b87-535e-000d-3aa7d4070000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</p>]
+03/15/2024, 17:40:53      Request from Wed, 10 May 2023 02:59:44 +0000 (UTC): [<p>get forecast 
+model: $mountain-forecast$
+mountain: $Begguya$
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db5102-9ac5-b7ed-000d-3aa7780f0000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+Benjamin Dewey sent this message from: Lat 62.969395 Lon -151.168957
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</p>]
+03/15/2024, 17:40:53      Request from Wed, 10 May 2023 02:47:46 +0000 (UTC): [<p>get forecast
+model: $meteoblue14$
+mountain: $Begguya$
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db5100-eeb7-560a-6045-bd2d98140000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+Benjamin Dewey sent this message from: Lat 62.969395 Lon -151.168978
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</p>]
+03/15/2024, 17:40:53      Request from Mon, 08 May 2023 23:36:53 +0000 (UTC): [<p>get forecast
+model: $meteoblue7$
+mountain: $SE Fork Kahiltna$
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db501d-0765-0f0b-000d-3aa7d0120000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</p>]
+03/15/2024, 17:40:53      Request from Mon, 08 May 2023 22:41:14 +0000 (UTC): [<p>get forecast
+model: $meteoblue7$
+mountain: $Begguya$
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db5015-4318-c14f-6045-bd2dc80d0000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</p>]
+03/15/2024, 17:40:53      Request from Mon, 01 May 2023 19:09:18 +0000 (UTC): [<p>get forecast
+model: $meteoblue14$
+mountain: $Begguya$
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db4a77-8718-ae48-0022-4847d80f0000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+Benjamin Dewey sent this message from: Lat 39.844601 Lon -104.976425
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</p>]
+03/15/2024, 17:40:53      Request from Mon, 1 May 2023 14:55:19 -0400: [<p>get forecast
+model: $meteoblue7$
+mountain: $SE Fork Kahiltna$
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Mon, 1 May 2023 14:52:14 -0400: [<p>get forecast
+model: (meteoblue7)
+mountain: (SE Fork Kahiltna)
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Mon, 01 May 2023 18:14:53 +0000 (UTC): [<p>get forecast
+model: <meteoblue14>
+mountain: <begguya>
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db4a6f-ecc1-8a1e-0022-4847d80f0000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+Benjamin Dewey sent this message from: Lat 39.844472 Lon -104.976404
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</begguya></meteoblue14></p>, <meteoblue14>
+mountain: <begguya>
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db4a6f-ecc1-8a1e-0022-4847d80f0000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+Benjamin Dewey sent this message from: Lat 39.844472 Lon -104.976404
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</begguya></meteoblue14>, <begguya>
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db4a6f-ecc1-8a1e-0022-4847d80f0000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+Benjamin Dewey sent this message from: Lat 39.844472 Lon -104.976404
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</begguya>]
+03/15/2024, 17:40:53      Request from Mon, 01 May 2023 18:14:53 +0000 (UTC): [<p>get forecast
+model: “meteoblue14”
+mountain: “Begguya”
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db4a6f-ecc1-6de3-0022-4847d80f0000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+Benjamin Dewey sent this message from: Lat 39.844472 Lon -104.976404
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</p>]
+03/15/2024, 17:40:53      Request from Mon, 01 May 2023 03:13:52 +0000 (UTC): [<p>get forecast
+model: “meteoblue14”
+mountain: “Begguya”
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db49f2-0668-a4d1-000d-3aa7d0120000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+Benjamin Dewey sent this message from: Lat 39.844472 Lon -104.976404
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</p>]
+03/15/2024, 17:40:53      Request from Sun, 30 Apr 2023 09:14:14 -0400: [<p>get forecast
+model: "meteoblue7"
+mountain: "SE Fork Kahiltna"
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Sun, 30 Apr 2023 09:13:31 -0400: [<p>get forecast
+model: "meteoblue14"
+mountain: "Lacuna Glacier"
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Sun, 30 Apr 2023 09:12:37 -0400: [<p>get forecast
+model: "mountain-forecast"
+mountain: "Sultana"
+elevation: "5000b
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Sun, 30 Apr 2023 09:12:22 -0400: [<p>get forecast
+model: "meteoblue7"
+mountain: "Sultana
+elevation: 5000
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Sun, 30 Apr 2023 09:12:01 -0400: [<p>get forecast
+model: "beans
+mountain: Sultana
+elevation: 5000
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Sun, 30 Apr 2023 09:11:34 -0400: [<p>get forecast
+model: beans
+mountain: "Sultana"
+elevation: "5000"
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Sun, 30 Apr 2023 09:11:22 -0400: [<p>get forecast
+model: "beans"
+mountain: "Sultana"
+elevation: "5000"
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Sun, 30 Apr 2023 09:11:06 -0400: [<p>get forecast
+model: "mountain-forecast"
+mountain: "Sultana"
+elevation: "beans"
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Sun, 30 Apr 2023 09:10:40 -0400: [<p>get forecast
+model: "mountain-forecast"
+mountain: "beans"
+elevation: "summit"
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Sat, 29 Apr 2023 14:57:59 -0400: [<p>get forecast
+model: "mountain-forecast"
+mountain: "Sultana"
+elevation: "5000"
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Sat, 29 Apr 2023 12:44:51 -0400: [<p>get forecast
+model: "meteoblue7"
+mountain: "Mount Huntington"
+elevation: "3730"
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Fri, 28 Apr 2023 15:27:09 -0400: [<p>get forecast
+model: "meteoblue"
+mountain: "Mount-Huntington"
+elevation: "3730"
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Wed, 26 Apr 2023 10:21:59 -0400: [<p>get forecast
+mountain: "Mount-Huntington"
+elevation: "3730"
+~test~
+-- 
+From the Phone.
+</p>]
+03/15/2024, 17:40:53      Request from Tue, 25 Apr 2023 04:05:44 +0000 (UTC): [<p>get forecast
+mountain: "Mooses-Tooth"
+elevation: "3150"
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db4542-4f03-129c-000d-3aa7e8110000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+Benjamin Dewey sent this message from: Lat 39.844483 Lon -104.976447
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</p>]
+03/15/2024, 17:40:53      Request from Mon, 24 Apr 2023 00:25:10 +0000 (UTC): [<p>get forecast 
+mountain: "Mount-Hunter"
+elevation: "4442"
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db445a-520e-e606-6045-bd2dc80d0000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+Benjamin Dewey sent this message from: Lat 39.844537 Lon -104.976447
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</p>]
+03/15/2024, 17:40:53      Request from Sun, 23 Apr 2023 15:28:25 -0400: [<p>get forecast
+mountain: "Mount-Huntington"
+elevation: "3730"
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Sun, 23 Apr 2023 14:24:57 -0400: [<p>get forecast
+mountain: "Mount-Huntington"
+elevation: "3730"
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Sun, 23 Apr 2023 13:35:54 -0400: [<p>get forecast
+mountain: "Mount-Hunter"
+elevation: "4442"
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Sat, 22 Apr 2023 22:46:27 -0400: [<p>~test~
+get forecast
+mountain: "Mount-Hunter"
+elevation: "4442"
+</p>]
+03/15/2024, 17:40:53      Request from Sat, 22 Apr 2023 19:05:03 +0000 (UTC): [<p>get forecast
+mountain: "Mount-Hunter"
+elevation: "4442"
+
+View the location or send a reply to Benjamin Dewey:
+https://us0.explore.garmin.com/textmessage/txtmsg?extId=08db4364-6e33-b4f1-000d-3aa7d0120000&amp;adr=dewey.mtn.forecasts%40gmail.com
+
+Benjamin Dewey sent this message from: Lat 39.844515 Lon -104.976447
+
+Do not reply directly to this message.
+
+This message was sent to you using the inReach two-way satellite communicator with GPS. To learn more, visit http://explore.garmin.com/inreach.
+</p>]
+03/15/2024, 17:40:53      Request from Wed, 19 Apr 2023 22:16:51 -0400: [<p>get forecast
+mountain: "Mount-Hunter"
+elevation: "4442"
+~test~
+</p>]
+03/15/2024, 17:40:53      Request from Wed, 19 Apr 2023 20:40:33 -0400: [<p>~test~
+get forecast
+mountain: "Mount-Huntington"
+elevation: "3730"
+</p>]
