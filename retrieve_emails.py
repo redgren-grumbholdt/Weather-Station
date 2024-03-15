@@ -87,7 +87,6 @@ def retrieve_emails(secret_file, retrievals):
             # Now, the data obtained is in lxml. So, we will parse
             # it with BeautifulSoup library
             soup = BeautifulSoup(decoded_data, "lxml")
-            print(soup)
             body = soup.body()
 
             plaintext_messages.append(Message(date, sender, subject, body))
@@ -113,6 +112,54 @@ def email_txt(bs4_obj):
     return BeautifulSoup(str(bs4_obj), 'html.parser').get_text()
 
 
+def set_up_logs(event_log, ignore_log, default_ignore_previous_to):
+    # Creates event log if none exists
+    with open(event_log, "w") as file:
+        file.write("EVENT LOG:\n")
+
+    # Opens log of date to ignore prior emails and sets previously read date to that
+    ignore_previous_to = default_ignore_previous_to
+    try:
+        with open(ignore_log, "r") as file:
+            if file.read() != '':
+                # Read the contents of the file into a variable
+                ignore_previous_to = file.read()
+            else:
+                with open(ignore_log, "w") as file:
+                    file.write(default_ignore_previous_to)
+        print("Ignoring emails previous to: ", ignore_previous_to)
+    # If the file does not exist, create it and set it's contents to the default previously read date
+    except FileNotFoundError:
+        print(f"{ignore_log} does not exist. Creating it now...")
+        with open(ignore_log, "w") as file:
+            file.write(default_ignore_previous_to)
+        with open(ignore_log, "r") as file:
+            # Read the contents of the file into a variable
+            ignore_previous_to = file.read()
+        print("Ignoring emails previous to: ", ignore_previous_to)
+
+
+def main(ignore_log):
+    print("\rchecking for forecast requests...", ' '*20, end='')
+    # retrieves messages from gmail
+    msgs = retrieve_emails(Secret_File, 50)
+
+    # makes list of messages that are forecast requests and new
+    requested_forecasts = []
+    for msg in msgs:
+        print(msg.date)
+        print(parsedate_tz(msg.date))
+        print(mktime_tz(parsedate_tz(msg.date)))
+        with open(ignore_log, "r") as file:
+            # Read the contents of the file into a variable
+            ignore_previous_to = file.read()
+        if mktime_tz(parsedate_tz(msg.date)) > mktime_tz(parsedate_tz(ignore_previous_to)):
+            if 'get forecast' in email_txt(msg.body):
+                requested_forecasts.append(msg)
+
+    print(requested_forecasts)
+
+
 # Define the SCOPES. If modifying it, delete the token.pickle file.
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
@@ -123,54 +170,16 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 Secret_File = os.path.join(dir_path, 'client_secret_114502949276-qujopcn3v6e65fdkjm1f7mikmdcicbad.apps.googleusercontent.com.json')
 
 default_ignore_previous_to = 'Wed, 19 Apr 2023 20:39:33 -0400'
-# forecast_email = 'dewey.mtn.forecasts@gmail.com'
-# forecast_email_password = 'xPQ2Sups@Zq3SU64#7%Wul!2kh%XSEM6'
-# imap_url = 'imap.gmail.com'
-# inreach_from_email = 'no.reply.inreach@garmin.com'
-# inreach_email = 'ben437B4@inreach.garmin.com'
 default_mountain = "Mount-Hunter"
 default_elevation = '4442'
 
-read_log_file = os.path.join(dir_path, "previously_read_log.txt")
-
 event_log_file = os.path.join(dir_path, 'event_logs/event_log_' + datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + '.txt')
-
-# Creates event log if none exists
-with open(event_log_file, "w") as file:
-    file.write("EVENT LOG:\n")
-
-# Opens log of date to ignore prior emails and sets previously read date to that
-try:
-    with open(read_log_file, "r") as file:
-        # Read the contents of the file into a variable
-        ignore_previous_to = file.read()
-    print("Ignoring emails previous to: ", ignore_previous_to)
-# If the file does not exist, create it and set it's contents to the default previously read date
-except FileNotFoundError:
-    print(f"{read_log_file} does not exist. Creating it now...")
-    with open(read_log_file, "w") as file:
-        file.write(default_ignore_previous_to)
-    with open(read_log_file, "r") as file:
-        # Read the contents of the file into a variable
-        ignore_previous_to = file.read()
-    print("Ignoring emails previous to: ", ignore_previous_to)
+prev_read_log_file = os.path.join(dir_path, "previously_read_log.txt")
+set_up_logs(event_log_file, prev_read_log_file, default_ignore_previous_to)
 
 while True:
     try:
-        print("\rchecking for forecast requests...", ' '*20, end='')
-        # retrieves messages from gmail
-        msgs = retrieve_emails(Secret_File, 50)
-        
-        print(msgs)
-
-        # makes list of messages that are forecast requests and new
-        requested_forecasts = []
-        for msg in msgs:
-            if mktime_tz(parsedate_tz(msg.date)) > mktime_tz(parsedate_tz(ignore_previous_to)):
-                if 'get forecast' in email_txt(msg.body):
-                    requested_forecasts.append(msg)
-    
-        print(requested_forecasts)
+        main(prev_read_log_file)
 
         time.sleep(60)
 
