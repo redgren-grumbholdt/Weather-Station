@@ -11,7 +11,7 @@ def format_day_forecast(mb_day, req_start):
         if day[-8:-6] == req_start and len(mb_day['time']) >= offset + 7:
             start = offset
     if start == None:
-        return ['Cannot retrieve the forecast for the days requested. Current available forecast is for ' + mb_day['time'][0][-8:-6] + '-' + mb_day['time'][-1][-8:-6]]
+        return ['Cannot retrieve the forecast for the days requested. Current available daily forecast is for ' + mb_day['time'][0][-8:-6] + '-' + mb_day['time'][-1][-8:-6]]
     
     time = ''
     high = 'H'
@@ -54,7 +54,7 @@ def format_3hr_forecast(mb_1hr, req_start):
         if day[-8:-3] == req_start and len(mb_1hr['time']) >= offset + (8*3+2):
             start = offset
     if start == None:
-        return ['Cannot retrieve the forecast for the days requested. Current available forecast is for ' + mb_1hr['time'][0][-8:-3] + '-' + mb_1hr['time'][-1][-8:-3]]
+        return ['Cannot retrieve the forecast for the days requested. Current available 3hr forecast is for ' + mb_1hr['time'][0][-8:-3] + '-' + mb_1hr['time'][-1][-8:-3]]
     
     time = ''
     temp = 'T'
@@ -96,7 +96,7 @@ def format_6hr_forecast(mb_1hr, req_start):
         if day[-8:-3] == req_start and len(mb_1hr['time']) >= offset + (8*6+5):
             start = offset
     if start == None:
-        return ['Cannot retrieve the forecast for the days requested. Current available forecast is for ' + mb_1hr['time'][0][-8:-3] + '-' + mb_1hr['time'][-1][-8:-3]]
+        return ['Cannot retrieve the forecast for the days requested. Current available 6hr forecast is for ' + mb_1hr['time'][0][-8:-3] + '-' + mb_1hr['time'][-1][-8:-3]]
     
     time = ''
     temp = 'T'
