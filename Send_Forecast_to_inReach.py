@@ -7,8 +7,6 @@ from datetime import datetime, timedelta
 def configure():
     load_dotenv()
 
-"https://my.meteoblue.com/packages/basic-1h_clouds-1h_trendpro-day"
-
 
 def loc_lookup(location):
     return "lat=62.920&lon=-151.070"
@@ -47,6 +45,19 @@ def get_forecast(location, elev, model):
     response = requests.get(url).json()
     with open('forecasts/'+forecast_filename, "w") as file:
         json.dump(response, file)
+
+
+def text_forecast(location, elev, model, request_start):
+    with open('forecasts/' + model + "_" + location + '_' + elev + '.json', 'r') as file:
+            forecast = json.load(file)
+    if model == 'Md':
+        return location[0:5] + ' ' + model + '\n' + ''.join(format_day_forecast(forecast['trend_day'], request_start))
+    elif model == 'M6':
+        return location[0:5] + ' ' + model + '\n' + ''.join(format_6hr_forecast(forecast['data_1h'], request_start))
+    elif model == 'M3':
+        return location[0:5] + ' ' + model + '\n' + ''.join(format_3hr_forecast(forecast['data_1h'], request_start))
+    else:
+        return
 
 
 def format_day_forecast(mb_day, req_start):
@@ -180,20 +191,10 @@ def main():
     configure()
     location = 'test'
     elev = ''
-    model = 'M3'
+    model = 'M6'
+    start = '18 03'
     get_forecast(location, elev, model)
 
-    with open('forecasts/' + model + "_" + location + '_' + elev + '.json', 'r') as file:
-        Forecast = json.load(file)
-    # day_forecast = ''.join(format_day_forecast(Forecast['trend_day'], '18'))
-    # print(day_forecast)
-    # print(len(day_forecast))
-    # print('\n')
-    # sixhr_forecast = ''.join(format_6hr_forecast(Forecast['data_1h'], '18 00'))
-    # print(sixhr_forecast)
-    # print(len(sixhr_forecast))
-    threehr_forecast = ''.join(format_3hr_forecast(Forecast['data_1h'], '18 00'))
-    print(threehr_forecast)
-    print(len(threehr_forecast))
+    print(text_forecast(location, elev, model, start))
 
 main()
