@@ -1,8 +1,52 @@
 import json
 import os
+from dotenv import load_dotenv
+import requests
+from datetime import datetime, timedelta
 
-FORECAST_FILE = "recent_forecast.json"
-Forecast = {}
+def configure():
+    load_dotenv()
+
+"https://my.meteoblue.com/packages/basic-1h_clouds-1h_trendpro-day"
+
+
+def loc_lookup(location):
+    return "lat=62.920&lon=-151.070"
+
+
+def get_forecast(location, elev, model):
+    # builds url for requested model
+    if model == 'Md':
+        url = "https://my.meteoblue.com/packages/trendpro-day?apikey=" + os.getenv('METEOBLUE_API_KEY') + "&" + loc_lookup(location) + "&"
+        if elev != "":
+            url += 'asl=' + elev + "&"
+        url += "format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char"
+    elif model == 'M6':
+        url = "https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=" + os.getenv('METEOBLUE_API_KEY') + "&" + loc_lookup(location) + "&"
+        if elev != "":
+            url += 'asl=' + elev + "&"
+        url += "format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char"
+    elif model == 'M3':
+        url = "https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=" + os.getenv('METEOBLUE_API_KEY') + "&" + loc_lookup(location) + "&"
+        if elev != "":
+            url += 'asl=' + elev + "&"
+        url += "format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char"
+    else:
+        # add error handling here
+        return
+
+    # checks if a recent (<3hr) model is already saved
+    forecast_filename = model + "_" + location + '_' + elev + '.json'
+    if os.path.exists('forecasts/'+forecast_filename):
+        with open('forecasts/'+forecast_filename, 'r') as file:
+            saved_forecast = json.load(file)
+        if datetime.strptime(saved_forecast['metadata']['modelrun_utc'], '%Y-%m-%d %H:%M') + timedelta(hours=3) > datetime.utcnow():
+            print('already gotten')
+            return
+    # gets a new model from meteoblue
+    response = requests.get(url).json()
+    with open('forecasts/'+forecast_filename, "w") as file:
+        json.dump(response, file)
 
 
 def format_day_forecast(mb_day, req_start):
@@ -133,14 +177,23 @@ def format_6hr_forecast(mb_1hr, req_start):
 
 
 def main():
-    with open(FORECAST_FILE, 'r') as file:
+    configure()
+    location = 'test'
+    elev = ''
+    model = 'M3'
+    get_forecast(location, elev, model)
+
+    with open('forecasts/' + model + "_" + location + '_' + elev + '.json', 'r') as file:
         Forecast = json.load(file)
-    day_forecast = ''.join(format_day_forecast(Forecast['trend_day'], '18'))
-    print(day_forecast)
-    print(len(day_forecast))
-    print('\n')
-    sixhr_forecast = ''.join(format_6hr_forecast(Forecast['data_1h'], '18 00'))
-    print(sixhr_forecast)
-    print(len(sixhr_forecast))
+    # day_forecast = ''.join(format_day_forecast(Forecast['trend_day'], '18'))
+    # print(day_forecast)
+    # print(len(day_forecast))
+    # print('\n')
+    # sixhr_forecast = ''.join(format_6hr_forecast(Forecast['data_1h'], '18 00'))
+    # print(sixhr_forecast)
+    # print(len(sixhr_forecast))
+    threehr_forecast = ''.join(format_3hr_forecast(Forecast['data_1h'], '18 00'))
+    print(threehr_forecast)
+    print(len(threehr_forecast))
 
 main()
