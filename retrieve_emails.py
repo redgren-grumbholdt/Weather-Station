@@ -150,11 +150,11 @@ def main(ignore_log):
             # Read the contents of the file into a variable
             ignore_previous_to = file.read()
         if mktime_tz(parsedate_tz(msg.date)) > mktime_tz(parsedate_tz(ignore_previous_to)):
-            if 'get forecast' in email_txt(msg.body):
+            if '$get forecast$' in email_txt(msg.body):
                 requested_forecasts.append(msg)
     
     if os.environ.get("NEW_REQUESTS") == None:
-        os.environ["NEW_REQUESTS"] = os.path.join(dir_path, 'new_requests.pickle')
+        os.environ["NEW_REQUESTS"] = os.path.join(dir_path, MESSAGES_FILE)
     with open(os.environ["NEW_REQUESTS"], 'wb') as file:
         pickle.dump(requested_forecasts, file)
     
@@ -163,7 +163,7 @@ def main(ignore_log):
             file.write(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + 'Received forecast request from ' + str(request.date) + "\n")
     
 
-
+MESSAGES_FILE = 'new_messages.pickle'
 # Define the SCOPES. If modifying it, delete the token.pickle file.
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
@@ -173,7 +173,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 # secret authorization file from google. copy paste filename of json in program location
 Secret_File = os.path.join(dir_path, 'client_secret_114502949276-qujopcn3v6e65fdkjm1f7mikmdcicbad.apps.googleusercontent.com.json')
 
-default_ignore_previous_to = 'Wed, 19 Apr 2023 20:39:33 -0400'
+default_ignore_previous_to = 'Sat, 11 Jun 2023 13:47:43 +0000 (UTC)'
 
 if os.environ.get("EVENT_LOG_FILE") == None:
     os.environ["EVENT_LOG_FILE"] = os.path.join(dir_path, 'event_logs/event_log_' + datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + '.txt')

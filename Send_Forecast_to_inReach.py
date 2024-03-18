@@ -3,28 +3,68 @@ import os
 from dotenv import load_dotenv
 import requests
 from datetime import datetime, timedelta
+import pickle
+
+
+class Message:
+    def __init__(self, date, sender, subject, body):
+        self.date = date
+        self.sender = sender
+        self.subject = subject
+        self.body = body
+
+    def __str__(self):
+        return f"{self.date}\n{self.sender}\n{self.subject}\n{self.body}"
+
+
+class Request:
+    def __init__(self, location=None, elevation=None, model=None, start=None):
+        if location is None:
+            location = 'begguya'
+        self.location = location
+        if elevation is None:
+            elevation = ''
+        self.elevation = elevation
+        if model is None:
+            model = 'Md'
+        self.model = model
+        if start is None:
+            start = ''
+        self.start = start
+
+    def __str__(self):
+        return f"{self.location}\n{self.elevation}\n{self.model}\n{self.start}"
+
 
 def configure():
     load_dotenv()
 
 
-def loc_lookup(location):
-    return "lat=62.920&lon=-151.070"
+def loc_lookup(loc):
+    with open(MB_LOCATIONS_LIST, 'r') as file:
+        locations = json.load(file)
+    if loc in locations:
+        return locations[loc]
+    elif ',' in loc:
+        return 'lat=' + loc.split(',')[0] + '&lon=' + loc.split(',')[1]
+    else:
+        # can change this to return an error
+        return "!bad location!"
 
 
 def get_forecast(location, elev, model):
     # builds url for requested model
-    if model == 'Md':
+    if model == 'mbd':
         url = "https://my.meteoblue.com/packages/trendpro-day?apikey=" + os.getenv('METEOBLUE_API_KEY') + "&" + loc_lookup(location) + "&"
         if elev != "":
             url += 'asl=' + elev + "&"
         url += "format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char"
-    elif model == 'M6':
+    elif model == 'mb6':
         url = "https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=" + os.getenv('METEOBLUE_API_KEY') + "&" + loc_lookup(location) + "&"
         if elev != "":
             url += 'asl=' + elev + "&"
         url += "format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char"
-    elif model == 'M3':
+    elif model == 'mb3':
         url = "https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=" + os.getenv('METEOBLUE_API_KEY') + "&" + loc_lookup(location) + "&"
         if elev != "":
             url += 'asl=' + elev + "&"
@@ -32,30 +72,49 @@ def get_forecast(location, elev, model):
     else:
         # add error handling here
         return
-
+    print(url)
     # checks if a recent (<3hr) model is already saved
     forecast_filename = model + "_" + location + '_' + elev + '.json'
-    if os.path.exists('forecasts/'+forecast_filename):
-        with open('forecasts/'+forecast_filename, 'r') as file:
+    if os.path.exists(FORECASTS_FOLDER+forecast_filename):
+        with open(FORECASTS_FOLDER+forecast_filename, 'r') as file:
             saved_forecast = json.load(file)
         if datetime.strptime(saved_forecast['metadata']['modelrun_utc'], '%Y-%m-%d %H:%M') + timedelta(hours=3) > datetime.utcnow():
             print('already gotten')
             return
     # gets a new model from meteoblue
     response = requests.get(url).json()
-    with open('forecasts/'+forecast_filename, "w") as file:
+    with open(FORECASTS_FOLDER+forecast_filename, "w") as file:
         json.dump(response, file)
 
 
+def compress_loc(location):
+    for prefix in ('mount ', 'mt ', 'pt ', 'pt. ', 'point'):
+        if prefix in location:
+            return location.split(prefix)[0]
+    if ',' in location:
+        return location.split(',')[0][-2:] + location[-2:]
+    else:
+        return location
+
+
 def text_forecast(location, elev, model, request_start):
-    with open('forecasts/' + model + "_" + location + '_' + elev + '.json', 'r') as file:
+    with open(FORECASTS_FOLDER + model + "_" + location + '_' + elev + '.json', 'r') as file:
             forecast = json.load(file)
-    if model == 'Md':
-        return location[0:5] + ' ' + model + '\n' + ''.join(format_day_forecast(forecast['trend_day'], request_start))
-    elif model == 'M6':
-        return location[0:5] + ' ' + model + '\n' + ''.join(format_6hr_forecast(forecast['data_1h'], request_start))
-    elif model == 'M3':
-        return location[0:5] + ' ' + model + '\n' + ''.join(format_3hr_forecast(forecast['data_1h'], request_start))
+    if model == 'mbd':
+        # if no request start specifified, make start of available forecast
+        if request_start == '':
+            request_start = forecast['metadata']['modelrun_utc'][-8:-6]
+        return compress_loc(location)[0:4] + str(round(int(forecast['metadata']['height'])*.00328084)).rjust(2, '0') + 'mD\n' + ''.join(format_day_forecast(forecast['trend_day'], request_start))
+    elif model == 'mb6':
+        # if no request start specifified, make start of available forecast
+        if request_start == '':
+            request_start = forecast['metadata']['modelrun_utc'][-8:-3]
+        return compress_loc(location)[0:4] + str(round(int(forecast['metadata']['height'])*.00328084)).rjust(2, '0') + 'm6\n' + ''.join(format_6hr_forecast(forecast['data_1h'], request_start))
+    elif model == 'mb3':
+         # if no request start specifified, make start of available forecast
+        if request_start == '':
+            request_start = forecast['metadata']['modelrun_utc'][-8:-3]
+        return compress_loc(location)[0:4] + str(round(int(forecast['metadata']['height'])*.00328084)).rjust(2, '0') + 'm3\n' + ''.join(format_3hr_forecast(forecast['data_1h'], request_start))
     else:
         return
 
@@ -187,14 +246,38 @@ def format_6hr_forecast(mb_1hr, req_start):
     return [time, temp, snow, precip_prob, clear, wind, wind_dir]
 
 
+def load_messages(email_pickle):
+    with open(email_pickle, 'rb') as file:
+        return pickle.load(file)
+
+
+def request_from_message(msg):
+    req = Request()
+    if '$model ' in str(msg.body):
+        req.model = str(msg.body).split('$model ')[1].split('$')[0]
+    if '$loc ' in str(msg.body):
+        req.location = str(msg.body).split('$loc ')[1].split('$')[0]
+    if '$elev ' in str(msg.body):
+        req.elevation = str(round(int(str(msg.body).split('$elev ')[1].split('$')[0])/3.28084))
+    if '$start ' in str(msg.body):
+        req.start = str(msg.body).split('$start ')[1].split('$')[0]
+    return req
+
+
 def main():
     configure()
-    location = 'test'
-    elev = ''
-    model = 'M6'
-    start = '18 03'
-    get_forecast(location, elev, model)
+    messages = load_messages(MESSAGES_FILE)
+    for message in messages:
+        request = request_from_message(message)
+        print(request)
+        get_forecast(request.location, request.elevation, request.model)
+        reply = text_forecast(request.location, request.elevation, request.model, request.start)
+        print(reply)
+        print(len(reply))
 
-    print(text_forecast(location, elev, model, start))
+
+FORECASTS_FOLDER = 'forecasts/'
+MESSAGES_FILE = 'new_messages.pickle'
+MB_LOCATIONS_LIST = 'forecast_locations.json'
 
 main()
