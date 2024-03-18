@@ -116,6 +116,7 @@ def text_forecast(location, elev, model, request_start):
             request_start = forecast['metadata']['modelrun_utc'][-8:-3]
         return compress_loc(location)[0:4] + str(round(int(forecast['metadata']['height'])*.00328084)).rjust(2, '0') + 'm3\n' + ''.join(format_3hr_forecast(forecast['data_1h'], request_start))
     else:
+        # add error handling here
         return
 
 
