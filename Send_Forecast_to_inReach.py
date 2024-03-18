@@ -5,6 +5,7 @@ import requests
 from datetime import datetime, timedelta
 import pickle
 from selenium import webdriver
+import time
 
 
 class Message:
@@ -19,7 +20,7 @@ class Message:
 
 
 class Request:
-    def __init__(self, location=None, elevation=None, model=None, start=None):
+    def __init__(self, location=None, elevation=None, model=None, start=None, test=None):
         if location is None:
             location = 'begguya'
         self.location = location
@@ -32,9 +33,12 @@ class Request:
         if start is None:
             start = ''
         self.start = start
+        if test is None:
+            test = False
+        self.test = test
 
     def __str__(self):
-        return f"{self.location}\n{self.elevation}\n{self.model}\n{self.start}"
+        return f"{self.location}\n{self.elevation}\n{self.model}\n{self.start}\ntest: {self.test}"
 
 
 def configure():
@@ -263,10 +267,14 @@ def request_from_message(msg):
         req.elevation = str(round(int(str(msg.body).split('$elev ')[1].split('$')[0])/3.28084))
     if '$start ' in str(msg.body):
         req.start = str(msg.body).split('$start ')[1].split('$')[0]
+    if '~test~' in str(msg.body):
+        req.test = True
+    else:
+        req.test = False
     return req
 
 
-def send_msg_to_inreach(msg):
+def send_msg_to_inreach(sms_forecasts):
     # sends sms data to inreach
     port = 465
     while True:
@@ -277,8 +285,9 @@ def send_msg_to_inreach(msg):
             options.add_argument('--no-sandbox')
             options.add_argument('--disable-dev-shm-usage')
             driver = webdriver.Chrome(options=options)
+            print('here')
             mapshare_address = 'https://share.garmin.com/VGTRY'
-            for message in sms_forecast:
+            for msg in sms_forecasts:
                 for i in range(30):
                     try:
                         driver.get(mapshare_address)
@@ -296,50 +305,51 @@ def send_msg_to_inreach(msg):
                         from_email_text_area = driver.find_elements_by_xpath('//*[@id="messageFrom"]')[0]
                         from_email_text_area.send_keys('dewey.mtn.forecasts@gmail.com')
                         msg_text_area = driver.find_elements_by_xpath('//*[@id="textMessage"]')[0]
-                        msg_text_area.send_keys(message)
+                        msg_text_area.send_keys(text_forecast(msg.location, msg.elevation, msg.model, msg.start))
                         driver.implicitly_wait(20)
-                        if not test:
+                        if not msg.test:
                             send_button = driver.find_elements_by_xpath('//*[@id="divModalMessage"]/div/div/div[3]/div[2]/button[2]')[0]
                             send_button.click()
                             driver.implicitly_wait(8)
                         time.sleep(5)
-                        with open(event_log_file, "a") as file:
-                            if not test:
-                                file.write(datetime.now().strftime(
-                                    "%m/%d/%Y, %H:%M:%S") + "      " + "Message Sent: " + str(
-                                    message) + "\n")
-                                print('\r' + datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + "message sent")
-                            elif test:
-                                file.write(datetime.now().strftime(
-                                    "%m/%d/%Y, %H:%M:%S") + "      " + "Test Message Successful" + "\n")
-                                print('\r' + datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + "test message successful")
+        #                 with open(event_log_file, "a") as file:
+        #                     if not msg.test:
+        #                         file.write(datetime.now().strftime(
+        #                             "%m/%d/%Y, %H:%M:%S") + "      " + "Message Sent: " + str(
+        #                             text_forecast(msg.location, msg.elevation, msg.model, msg.start)) + "\n")
+        #                         print('\r' + datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + "message sent")
+        #                     elif msg.test:
+        #                         file.write(datetime.now().strftime(
+        #                             "%m/%d/%Y, %H:%M:%S") + "      " + "Test Message Successful" + "\n")
+        #                         print('\r' + datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + "test message successful")
                     except Exception as e:
-                        with open(event_log_file, "a") as file:
-                            file.write(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + "Error with Garmin website: " + str(e) + "\n")
+        #                 with open(event_log_file, "a") as file:
+        #                     file.write(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + "Error with Garmin website: " + str(e) + "\n")
                         continue
                     break
             driver.close()
         # if error
         except Exception as e:
-            with open(event_log_file, "a") as file:
-                file.write(
-                    datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + 'ERROR sending messages: ' + str(e) + "\n")
+        #     with open(event_log_file, "a") as file:
+        #         file.write(
+        #             datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + 'ERROR sending messages: ' + str(e) + "\n")
             time.sleep(1)
             continue
-        last_sent = datetime.now()
+        # last_sent = datetime.now()
         break
 
 
 def main():
     configure()
-    messages = load_messages(MESSAGES_FILE)
-    for message in messages:
+    request_messages = load_messages(MESSAGES_FILE)
+    for message in request_messages:
         request = request_from_message(message)
         print(request)
         get_forecast(request.location, request.elevation, request.model)
         reply = text_forecast(request.location, request.elevation, request.model, request.start)
         print(reply)
         print(len(reply))
+    send_msg_to_inreach(request_messages)
 
 
 FORECASTS_FOLDER = 'forecasts/'
