@@ -1,0 +1,224 @@
+EVENT LOG:
+
+03/18/2024, 22:17:41      the following request is a test:
+03/18/2024, 22:17:41      REQUEST RECEIVED at Mon, 18 Mar 2024 12:51:16 -0400
+03/18/2024, 22:17:41      Mountain requested not found on Meteo Blue site. Please refer to requesting guide03/18/2024, 22:17:47      ERROR sending messages: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /home/codespace/.cache/selenium/chrome/linux64/122.0.6261.128/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x560be742df33 <unknown>
+#1 0x560be7125ce6 <unknown>
+#2 0x560be715a6fa <unknown>
+#3 0x560be71566ed <unknown>
+#4 0x560be719f71c <unknown>
+#5 0x560be7192c53 <unknown>
+#6 0x560be7163db3 <unknown>
+#7 0x560be716477e <unknown>
+#8 0x560be73f386b <unknown>
+#9 0x560be73f7885 <unknown>
+#10 0x560be73e1181 <unknown>
+#11 0x560be73f8412 <unknown>
+#12 0x560be73c525f <unknown>
+#13 0x560be741c528 <unknown>
+#14 0x560be741c723 <unknown>
+#15 0x560be742d0e4 <unknown>
+#16 0x7fabd8efa609 start_thread
+
+03/18/2024, 22:17:48      ERROR sending messages: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /home/codespace/.cache/selenium/chrome/linux64/122.0.6261.128/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x5620c1187f33 <unknown>
+#1 0x5620c0e7fce6 <unknown>
+#2 0x5620c0eb46fa <unknown>
+#3 0x5620c0eb06ed <unknown>
+#4 0x5620c0ef971c <unknown>
+#5 0x5620c0eecc53 <unknown>
+#6 0x5620c0ebddb3 <unknown>
+#7 0x5620c0ebe77e <unknown>
+#8 0x5620c114d86b <unknown>
+#9 0x5620c1151885 <unknown>
+#10 0x5620c113b181 <unknown>
+#11 0x5620c1152412 <unknown>
+#12 0x5620c111f25f <unknown>
+#13 0x5620c1176528 <unknown>
+#14 0x5620c1176723 <unknown>
+#15 0x5620c11870e4 <unknown>
+#16 0x7fc9cba3f609 start_thread
+
+03/18/2024, 22:17:49      ERROR sending messages: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /home/codespace/.cache/selenium/chrome/linux64/122.0.6261.128/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x55dd9e265f33 <unknown>
+#1 0x55dd9df5dce6 <unknown>
+#2 0x55dd9df926fa <unknown>
+#3 0x55dd9df8e6ed <unknown>
+#4 0x55dd9dfd771c <unknown>
+#5 0x55dd9dfcac53 <unknown>
+#6 0x55dd9df9bdb3 <unknown>
+#7 0x55dd9df9c77e <unknown>
+#8 0x55dd9e22b86b <unknown>
+#9 0x55dd9e22f885 <unknown>
+#10 0x55dd9e219181 <unknown>
+#11 0x55dd9e230412 <unknown>
+#12 0x55dd9e1fd25f <unknown>
+#13 0x55dd9e254528 <unknown>
+#14 0x55dd9e254723 <unknown>
+#15 0x55dd9e2650e4 <unknown>
+#16 0x7f07cd062609 start_thread
+
+03/18/2024, 22:17:51      ERROR sending messages: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /home/codespace/.cache/selenium/chrome/linux64/122.0.6261.128/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x557998af3f33 <unknown>
+#1 0x5579987ebce6 <unknown>
+#2 0x5579988206fa <unknown>
+#3 0x55799881c6ed <unknown>
+#4 0x55799886571c <unknown>
+#5 0x557998858c53 <unknown>
+#6 0x557998829db3 <unknown>
+#7 0x55799882a77e <unknown>
+#8 0x557998ab986b <unknown>
+#9 0x557998abd885 <unknown>
+#10 0x557998aa7181 <unknown>
+#11 0x557998abe412 <unknown>
+#12 0x557998a8b25f <unknown>
+#13 0x557998ae2528 <unknown>
+#14 0x557998ae2723 <unknown>
+#15 0x557998af30e4 <unknown>
+#16 0x7f7c51752609 start_thread
+
+03/18/2024, 22:17:52      ERROR sending messages: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /home/codespace/.cache/selenium/chrome/linux64/122.0.6261.128/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x55cc330f9f33 <unknown>
+#1 0x55cc32df1ce6 <unknown>
+#2 0x55cc32e266fa <unknown>
+#3 0x55cc32e226ed <unknown>
+#4 0x55cc32e6b71c <unknown>
+#5 0x55cc32e5ec53 <unknown>
+#6 0x55cc32e2fdb3 <unknown>
+#7 0x55cc32e3077e <unknown>
+#8 0x55cc330bf86b <unknown>
+#9 0x55cc330c3885 <unknown>
+#10 0x55cc330ad181 <unknown>
+#11 0x55cc330c4412 <unknown>
+#12 0x55cc3309125f <unknown>
+#13 0x55cc330e8528 <unknown>
+#14 0x55cc330e8723 <unknown>
+#15 0x55cc330f90e4 <unknown>
+#16 0x7fa9f8497609 start_thread
+
+03/18/2024, 22:17:53      ERROR sending messages: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /home/codespace/.cache/selenium/chrome/linux64/122.0.6261.128/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x562c0e2edf33 <unknown>
+#1 0x562c0dfe5ce6 <unknown>
+#2 0x562c0e01a6fa <unknown>
+#3 0x562c0e0166ed <unknown>
+#4 0x562c0e05f71c <unknown>
+#5 0x562c0e052c53 <unknown>
+#6 0x562c0e023db3 <unknown>
+#7 0x562c0e02477e <unknown>
+#8 0x562c0e2b386b <unknown>
+#9 0x562c0e2b7885 <unknown>
+#10 0x562c0e2a1181 <unknown>
+#11 0x562c0e2b8412 <unknown>
+#12 0x562c0e28525f <unknown>
+#13 0x562c0e2dc528 <unknown>
+#14 0x562c0e2dc723 <unknown>
+#15 0x562c0e2ed0e4 <unknown>
+#16 0x7f6faf4e5609 start_thread
+
+03/18/2024, 22:17:54      ERROR sending messages: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /home/codespace/.cache/selenium/chrome/linux64/122.0.6261.128/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x55eee91abf33 <unknown>
+#1 0x55eee8ea3ce6 <unknown>
+#2 0x55eee8ed86fa <unknown>
+#3 0x55eee8ed46ed <unknown>
+#4 0x55eee8f1d71c <unknown>
+#5 0x55eee8f10c53 <unknown>
+#6 0x55eee8ee1db3 <unknown>
+#7 0x55eee8ee277e <unknown>
+#8 0x55eee917186b <unknown>
+#9 0x55eee9175885 <unknown>
+#10 0x55eee915f181 <unknown>
+#11 0x55eee9176412 <unknown>
+#12 0x55eee914325f <unknown>
+#13 0x55eee919a528 <unknown>
+#14 0x55eee919a723 <unknown>
+#15 0x55eee91ab0e4 <unknown>
+#16 0x7fcd72d41609 start_thread
+
+03/18/2024, 22:17:55      ERROR sending messages: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /home/codespace/.cache/selenium/chrome/linux64/122.0.6261.128/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x5564cc00af33 <unknown>
+#1 0x5564cbd02ce6 <unknown>
+#2 0x5564cbd376fa <unknown>
+#3 0x5564cbd336ed <unknown>
+#4 0x5564cbd7c71c <unknown>
+#5 0x5564cbd6fc53 <unknown>
+#6 0x5564cbd40db3 <unknown>
+#7 0x5564cbd4177e <unknown>
+#8 0x5564cbfd086b <unknown>
+#9 0x5564cbfd4885 <unknown>
+#10 0x5564cbfbe181 <unknown>
+#11 0x5564cbfd5412 <unknown>
+#12 0x5564cbfa225f <unknown>
+#13 0x5564cbff9528 <unknown>
+#14 0x5564cbff9723 <unknown>
+#15 0x5564cc00a0e4 <unknown>
+#16 0x7f236cbea609 start_thread
+
+03/18/2024, 22:17:57      ERROR sending messages: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /home/codespace/.cache/selenium/chrome/linux64/122.0.6261.128/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x55a676f9bf33 <unknown>
+#1 0x55a676c93ce6 <unknown>
+#2 0x55a676cc86fa <unknown>
+#3 0x55a676cc46ed <unknown>
+#4 0x55a676d0d71c <unknown>
+#5 0x55a676d00c53 <unknown>
+#6 0x55a676cd1db3 <unknown>
+#7 0x55a676cd277e <unknown>
+#8 0x55a676f6186b <unknown>
+#9 0x55a676f65885 <unknown>
+#10 0x55a676f4f181 <unknown>
+#11 0x55a676f66412 <unknown>
+#12 0x55a676f3325f <unknown>
+#13 0x55a676f8a528 <unknown>
+#14 0x55a676f8a723 <unknown>
+#15 0x55a676f9b0e4 <unknown>
+#16 0x7f8c0dd6a609 start_thread
+
+03/18/2024, 22:17:58      ERROR sending messages: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /home/codespace/.cache/selenium/chrome/linux64/122.0.6261.128/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x564150bd1f33 <unknown>
+#1 0x5641508c9ce6 <unknown>
+#2 0x5641508fe6fa <unknown>
+#3 0x5641508fa6ed <unknown>
+#4 0x56415094371c <unknown>
+#5 0x564150936c53 <unknown>
+#6 0x564150907db3 <unknown>
+#7 0x56415090877e <unknown>
+#8 0x564150b9786b <unknown>
+#9 0x564150b9b885 <unknown>
+#10 0x564150b85181 <unknown>
+#11 0x564150b9c412 <unknown>
+#12 0x564150b6925f <unknown>
+#13 0x564150bc0528 <unknown>
+#14 0x564150bc0723 <unknown>
+#15 0x564150bd10e4 <unknown>
+#16 0x7fc1263cd609 start_thread
+

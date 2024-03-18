@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import requests
 from datetime import datetime, timedelta
 import pickle
+from selenium import webdriver
 
 
 class Message:
@@ -263,6 +264,70 @@ def request_from_message(msg):
     if '$start ' in str(msg.body):
         req.start = str(msg.body).split('$start ')[1].split('$')[0]
     return req
+
+
+def send_msg_to_inreach(msg):
+    # sends sms data to inreach
+    port = 465
+    while True:
+        try:
+            options = webdriver.ChromeOptions()
+            options.add_argument('--ignore-certificate-errors')
+            options.add_argument("--test-type")
+            options.add_argument('--no-sandbox')
+            options.add_argument('--disable-dev-shm-usage')
+            driver = webdriver.Chrome(options=options)
+            mapshare_address = 'https://share.garmin.com/VGTRY'
+            for message in sms_forecast:
+                for i in range(30):
+                    try:
+                        driver.get(mapshare_address)
+                        driver.implicitly_wait(60)
+                        try:
+                            close_button = driver.find_elements_by_xpath(
+                                '//*[@id="inreach-right-ad-close"]')[0]
+                            close_button.click()
+                            driver.implicitly_wait(30)
+                        except Exception as e:
+                            pass
+                        message_button = driver.find_elements_by_xpath('//*[@id="user-messaging-controls"]/div[2]')[0]
+                        message_button.click()
+                        driver.implicitly_wait(40)
+                        from_email_text_area = driver.find_elements_by_xpath('//*[@id="messageFrom"]')[0]
+                        from_email_text_area.send_keys('dewey.mtn.forecasts@gmail.com')
+                        msg_text_area = driver.find_elements_by_xpath('//*[@id="textMessage"]')[0]
+                        msg_text_area.send_keys(message)
+                        driver.implicitly_wait(20)
+                        if not test:
+                            send_button = driver.find_elements_by_xpath('//*[@id="divModalMessage"]/div/div/div[3]/div[2]/button[2]')[0]
+                            send_button.click()
+                            driver.implicitly_wait(8)
+                        time.sleep(5)
+                        with open(event_log_file, "a") as file:
+                            if not test:
+                                file.write(datetime.now().strftime(
+                                    "%m/%d/%Y, %H:%M:%S") + "      " + "Message Sent: " + str(
+                                    message) + "\n")
+                                print('\r' + datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + "message sent")
+                            elif test:
+                                file.write(datetime.now().strftime(
+                                    "%m/%d/%Y, %H:%M:%S") + "      " + "Test Message Successful" + "\n")
+                                print('\r' + datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + "test message successful")
+                    except Exception as e:
+                        with open(event_log_file, "a") as file:
+                            file.write(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + "Error with Garmin website: " + str(e) + "\n")
+                        continue
+                    break
+            driver.close()
+        # if error
+        except Exception as e:
+            with open(event_log_file, "a") as file:
+                file.write(
+                    datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + 'ERROR sending messages: ' + str(e) + "\n")
+            time.sleep(1)
+            continue
+        last_sent = datetime.now()
+        break
 
 
 def main():
