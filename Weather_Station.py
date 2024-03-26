@@ -396,9 +396,9 @@ def notify_map_share(url, text, test):
 def update_prev_read_log(msg, log):
     with open(log, 'r') as file:
         last_read = file.read()
-#    if mktime_tz(parsedate_tz(msg.date)) > mktime_tz(parsedate_tz(last_read)):
-#        with open(log, 'w') as file:
-#           file.write(msg.date)
+    if mktime_tz(parsedate_tz(msg.date)) > mktime_tz(parsedate_tz(last_read)):
+        with open(log, 'w') as file:
+            file.write(msg.date)
 
 
 def main():
