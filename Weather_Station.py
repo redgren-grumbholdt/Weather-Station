@@ -27,13 +27,13 @@ class Forecast_Request:
     def __init__(self, location=None, elevation=None, model=None, start=None, 
                  test=None):
         if location is None:
-            location = 'begguya'
+            location = '62.950,-151.091'
         self.location = location
         if elevation is None:
             elevation = ''
         self.elevation = elevation
         if model is None:
-            model = 'Md'
+            model = 'mbd'
         self.model = model
         if start is None:
             start = ''
@@ -45,7 +45,6 @@ class Forecast_Request:
     def __str__(self):
         return f"{self.location}\n{self.elevation}\n{self.model}\n{self.start} \
             \ntest: {self.test}"
-
 
 
 def configure():
@@ -187,10 +186,8 @@ def get_meteoblue_forecast(location, elev, model):
 
 # takes requested location and returns correctly formatted location if possible
 def location_lookup(loc):
-    with open(MB_LOCATIONS_LIST, 'r') as file:
-        locations = json.load(file)
-    if loc in locations:
-        return locations[loc]
+    if ', ' in loc:
+        return 'lat=' + loc.split(', ')[0] + '&lon=' + loc.split(', ')[1]
     elif ',' in loc:
         return 'lat=' + loc.split(',')[0] + '&lon=' + loc.split(',')[1]
     else:
@@ -206,29 +203,29 @@ def build_sms_forecast(location, elev, model, request_start):
         # if no request start specifified, make start of available forecast
         if request_start == '':
             request_start = forecast['metadata']['modelrun_utc'][-8:-3]
-        return compress_loc(location)[0:4] + str(round(int(forecast['metadata']['height'])*.00328084)).rjust(2, '0') + 'm6\n' + ''.join(format_6hr_forecast(forecast['data_1h'], request_start))
+        model_tag = '6'
+        formatted_data = format_6hr_forecast(forecast['data_1h'], request_start)
     elif model == 'mb3':
          # if no request start specifified, make start of available forecast
         if request_start == '':
             request_start = forecast['metadata']['modelrun_utc'][-8:-3]
-        return compress_loc(location)[0:4] + str(round(int(forecast['metadata']['height'])*.00328084)).rjust(2, '0') + 'm3\n' + ''.join(format_3hr_forecast(forecast['data_1h'], request_start))
+        model_tag = '3'
+        formatted_data = format_3hr_forecast(forecast['data_1h'], request_start)
     # if model == 'mbd' give daily forecast, or if bad model is requested give daily by default
     else:
         # if no request start specifified, make start of available forecast
         if request_start == '':
             request_start = forecast['metadata']['modelrun_utc'][-8:-6]
-        return compress_loc(location)[0:4] + str(round(int(forecast['metadata']['height'])*.00328084)).rjust(2, '0') + 'mD\n' + ''.join(format_day_forecast(forecast['trend_day'], request_start))
+        model_tag = 'D'
+        formatted_data = format_day_forecast(forecast['trend_day'], request_start)
+    return compress_loc(forecast) + ' ' + str(round(int(forecast['metadata']['height'])*.00328084)) + ' ' + model_tag + '\n' + ''.join(formatted_data)
 
 
 # returns string of location without unnecesary characters to send to inreach
-def compress_loc(location):
-    for prefix in ('mount ', 'mt ', 'pt ', 'pt. ', 'point '):
-        if prefix in location:
-            return location.split(prefix)[0]
-    if ',' in location:
-        return location.split(',')[0][-2:] + location[-2:]
-    else:
-        return location
+def compress_loc(forecast):
+    lat = forecast['metadata']['latitude']
+    lon = forecast['metadata']['longitude']
+    return (str(lat).split('.')[0] + str(lat).split('.')[1][:1]).ljust(4) + (str(lon).split('.')[0] + str(lon).split('.')[1][0:1]).rjust(5)
 
 
 # formats 7 day (24-hour incriment) Meteoblue data for sms inreach reply
@@ -352,7 +349,7 @@ def format_6hr_forecast(mb_1hr, req_start):
         precip_prob += str(round(max([float(prob) for prob in mb_1hr['precipitation_probability'][hr1:hr6]])/10)).rjust(2)
         clear += str(round(sum([float(mins) for mins in mb_1hr['sunshinetime'][hr1:hr6]])/60)).rjust(2)
         wind += str(round(max([float(mph) for mph in mb_1hr['windspeed'][hr1:hr6]])/10)).rjust(2)
-        wind_dir += mb_1hr['winddirection'][hr1+3].rjust(3)
+        wind_dir += mb_1hr['winddirection'][hr1+3].rjust(2)
         if int(mb_1hr['time'][hr1][-5:-3]) > 17:
             temp, snow, precip_prob, clear, wind, wind_dir = (x + '*' for x in (temp, snow, precip_prob, clear, wind, wind_dir))
 
@@ -396,6 +393,14 @@ def notify_map_share(url, text, test):
         logger.info('this forecast request is a test')
 
 
+def update_prev_read_log(msg, log):
+    with open(log, 'r') as file:
+        last_read = file.read()
+#    if mktime_tz(parsedate_tz(msg.date)) > mktime_tz(parsedate_tz(last_read)):
+#        with open(log, 'w') as file:
+#           file.write(msg.date)
+
+
 def main():
     configure()
     # retrieves messages from gmail
@@ -413,6 +418,7 @@ def main():
         logger.info('weather forecast reply:\n' + reply)
         map_share_url = extract_map_share_url(str(message))
         notify_map_share(map_share_url, reply, inreach_req.test)
+        update_prev_read_log(message, EMAIL_READ_LOG)
 
 
 FORECASTS_FOLDER = 'forecasts/'
