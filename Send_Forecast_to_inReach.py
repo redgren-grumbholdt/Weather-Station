@@ -5,7 +5,13 @@ import requests
 from datetime import datetime, timedelta
 import pickle
 from selenium import webdriver
+from selenium.webdriver.firefox.service import Service
+from webdriver_manager.firefox import GeckoDriverManager
 import time
+from base64 import b64encode
+from bs4 import BeautifulSoup
+import logging
+import re
 
 
 class Message:
@@ -274,69 +280,36 @@ def request_from_message(msg):
     return req
 
 
-def send_msg_to_inreach(sms_forecasts):
-    # sends sms data to inreach
-    port = 465
-    while True:
-        try:
-            options = webdriver.ChromeOptions()
-            options.add_argument('--ignore-certificate-errors')
-            options.add_argument("--test-type")
-            options.add_argument('--no-sandbox')
-            options.add_argument('--disable-dev-shm-usage')
-            driver = webdriver.Chrome(options=options)
-            print('here')
-            mapshare_address = 'https://share.garmin.com/VGTRY'
-            for msg in sms_forecasts:
-                for i in range(30):
-                    try:
-                        driver.get(mapshare_address)
-                        driver.implicitly_wait(60)
-                        try:
-                            close_button = driver.find_elements_by_xpath(
-                                '//*[@id="inreach-right-ad-close"]')[0]
-                            close_button.click()
-                            driver.implicitly_wait(30)
-                        except Exception as e:
-                            pass
-                        message_button = driver.find_elements_by_xpath('//*[@id="user-messaging-controls"]/div[2]')[0]
-                        message_button.click()
-                        driver.implicitly_wait(40)
-                        from_email_text_area = driver.find_elements_by_xpath('//*[@id="messageFrom"]')[0]
-                        from_email_text_area.send_keys('dewey.mtn.forecasts@gmail.com')
-                        msg_text_area = driver.find_elements_by_xpath('//*[@id="textMessage"]')[0]
-                        msg_text_area.send_keys(text_forecast(msg.location, msg.elevation, msg.model, msg.start))
-                        driver.implicitly_wait(20)
-                        if not msg.test:
-                            send_button = driver.find_elements_by_xpath('//*[@id="divModalMessage"]/div/div/div[3]/div[2]/button[2]')[0]
-                            send_button.click()
-                            driver.implicitly_wait(8)
-                        time.sleep(5)
-        #                 with open(event_log_file, "a") as file:
-        #                     if not msg.test:
-        #                         file.write(datetime.now().strftime(
-        #                             "%m/%d/%Y, %H:%M:%S") + "      " + "Message Sent: " + str(
-        #                             text_forecast(msg.location, msg.elevation, msg.model, msg.start)) + "\n")
-        #                         print('\r' + datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + "message sent")
-        #                     elif msg.test:
-        #                         file.write(datetime.now().strftime(
-        #                             "%m/%d/%Y, %H:%M:%S") + "      " + "Test Message Successful" + "\n")
-        #                         print('\r' + datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + "test message successful")
-                    except Exception as e:
-        #                 with open(event_log_file, "a") as file:
-        #                     file.write(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + "Error with Garmin website: " + str(e) + "\n")
-                        continue
-                    break
-            driver.close()
-        # if error
-        except Exception as e:
-        #     with open(event_log_file, "a") as file:
-        #         file.write(
-        #             datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + "      " + 'ERROR sending messages: ' + str(e) + "\n")
-            time.sleep(1)
-            continue
-        # last_sent = datetime.now()
-        break
+def extract_map_share_url(text):
+    url = re.search("(?P<url>https?://[^\s]+)", text).group("url")
+    if url == 'http://explore.garmin.com/inreach':
+        url = os.getenv('FALLBACK_INREACH_REPLY_URL')
+    logging.info('sending via ' + url)
+    return url
+
+
+def create_map_share_payload(url, text):
+    soup = BeautifulSoup(requests.get(url).content, 'html.parser')
+    message_id = soup.find("input", {"id": "MessageId"}).get('value')
+    guid = soup.find("input", {"id": "Guid"}).get('value')
+    reply_address = soup.find("input", {"id": "ReplyAddress"}).get('value')
+
+    return {'ReplyAddress': reply_address,
+            'ReplyMessage': text,
+            'MessageId': message_id,
+            'Guid': guid}
+
+def notify_map_share(url, text):
+    payload = create_map_share_payload(url, text)
+    logging.debug(payload)
+
+    session = requests.Session()
+    response = session.post(
+        'https://us0.explore.garmin.com/textmessage/txtmsg',
+        headers={'User-Agent': 'Mozilla/5.0'},
+        data=payload)
+
+    logging.info(response.headers)
 
 
 def main():
@@ -349,7 +322,10 @@ def main():
         reply = text_forecast(request.location, request.elevation, request.model, request.start)
         print(reply)
         print(len(reply))
-    send_msg_to_inreach(request_messages)
+        map_share_url = extract_map_share_url(str(message))
+        logging.basicConfig(level=logging.DEBUG)
+        if not request.test:
+            notify_map_share(map_share_url, reply)
 
 
 FORECASTS_FOLDER = 'forecasts/'
