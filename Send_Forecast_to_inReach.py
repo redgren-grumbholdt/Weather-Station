@@ -4,15 +4,9 @@ from dotenv import load_dotenv
 import requests
 from datetime import datetime, timedelta
 import pickle
-from selenium import webdriver
-from selenium.webdriver.firefox.service import Service
-from webdriver_manager.firefox import GeckoDriverManager
-import time
-from base64 import b64encode
 from bs4 import BeautifulSoup
 import logging
 import re
-
 
 class Message:
     def __init__(self, date, sender, subject, body):
@@ -24,9 +18,9 @@ class Message:
     def __str__(self):
         return f"{self.date}\n{self.sender}\n{self.subject}\n{self.body}"
 
-
-class Request:
-    def __init__(self, location=None, elevation=None, model=None, start=None, test=None):
+class Forecast_Request:
+    def __init__(self, location=None, elevation=None, model=None, start=None, 
+                 test=None):
         if location is None:
             location = 'begguya'
         self.location = location
@@ -44,14 +38,84 @@ class Request:
         self.test = test
 
     def __str__(self):
-        return f"{self.location}\n{self.elevation}\n{self.model}\n{self.start}\ntest: {self.test}"
+        return f"{self.location}\n{self.elevation}\n{self.model}\n{self.start} \
+            \ntest: {self.test}"
 
 
+def load_messages(email_pickle):
+    with open(email_pickle, 'rb') as file:
+        return pickle.load(file)
+
+
+# loads secret variables
 def configure():
     load_dotenv()
 
 
-def loc_lookup(loc):
+# reads email and extracts the forecast request
+def extract_request_from_message(msg):
+    req = Forecast_Request()
+    if '$model ' in str(msg.body):
+        req.model = str(msg.body).split('$model ')[1].split('$')[0]
+    if '$loc ' in str(msg.body):
+        req.location = str(msg.body).split('$loc ')[1].split('$')[0]
+    if '$elev ' in str(msg.body):
+        req.elevation = str(round(int(str(msg.body).split('$elev ')[1].split('$')[0])/3.28084))
+    if '$start ' in str(msg.body):
+        req.start = str(msg.body).split('$start ')[1].split('$')[0]
+    if '~test~' in str(msg.body):
+        req.test = True
+    else:
+        req.test = False
+    return req
+
+
+# retrieves forecast from MeteoBlue API
+def get_meteoblue_forecast(location, elev, model):
+    # builds url for requested model
+    if model == 'mb6':
+        url = "https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=" + \
+              os.getenv('METEOBLUE_API_KEY') + "&" + location_lookup(location) + "&"
+        if elev != "" and 0 < int(elev) < 8848:
+            url += 'asl=' + elev + "&"
+        url += "format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char"
+    elif model == 'mb3':
+        url = "https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=" + \
+              os.getenv('METEOBLUE_API_KEY') + "&" + location_lookup(location) + "&"
+        if elev != "" and 0 < int(elev) < 8848:
+            url += 'asl=' + elev + "&"
+        url += "format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char"
+    else:
+        # if bad model request give 7 day forecast as default
+        if model != 'mbd':
+            logger.warning('bad model request, giving 7 day forecast as default')
+        url = "https://my.meteoblue.com/packages/trendpro-day?apikey=" + \
+              os.getenv('METEOBLUE_API_KEY') + "&" + location_lookup(location) + "&"
+        if elev != "" and 0 < int(elev) < 8848:
+            url += 'asl=' + elev + "&"
+        url += "format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char"
+    
+    # checks if a recent (<3hr ago) model is already saved
+    forecast_filename = model + "_" + location + '_' + elev + '.json'
+    if os.path.exists(FORECASTS_FOLDER+forecast_filename):
+        with open(FORECASTS_FOLDER+forecast_filename, 'r') as file:
+            saved_forecast = json.load(file)
+        if datetime.strptime(saved_forecast['metadata']['modelrun_utc'], 
+                             '%Y-%m-%d %H:%M') + timedelta(hours=3) > datetime.utcnow():
+            logger.info('requested forecast already retrived recently at ' + 
+                        saved_forecast['metadata']['modelrun_utc'])
+            return
+    # gets a new model from meteoblue
+    logger.info('getting forecast from ' + 
+        url.split(os.getenv('METEOBLUE_API_KEY'))[0] + 
+        "****************" + url.split(os.getenv('METEOBLUE_API_KEY'))[1])
+    response = requests.get(url).json()
+    with open(FORECASTS_FOLDER+forecast_filename, "w") as file:
+        json.dump(response, file)
+
+
+# takes requested location and returns correctly formatted location if possible
+def location_lookup(loc):
     with open(MB_LOCATIONS_LIST, 'r') as file:
         locations = json.load(file)
     if loc in locations:
@@ -59,64 +123,15 @@ def loc_lookup(loc):
     elif ',' in loc:
         return 'lat=' + loc.split(',')[0] + '&lon=' + loc.split(',')[1]
     else:
-        # can change this to return an error
-        return "!bad location!"
+        logger.warning('bad location, giving Begguya forecast as default')
+        return "mount-hunter_united-states_5864415"
 
 
-def get_forecast(location, elev, model):
-    # builds url for requested model
-    if model == 'mbd':
-        url = "https://my.meteoblue.com/packages/trendpro-day?apikey=" + os.getenv('METEOBLUE_API_KEY') + "&" + loc_lookup(location) + "&"
-        if elev != "":
-            url += 'asl=' + elev + "&"
-        url += "format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char"
-    elif model == 'mb6':
-        url = "https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=" + os.getenv('METEOBLUE_API_KEY') + "&" + loc_lookup(location) + "&"
-        if elev != "":
-            url += 'asl=' + elev + "&"
-        url += "format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char"
-    elif model == 'mb3':
-        url = "https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=" + os.getenv('METEOBLUE_API_KEY') + "&" + loc_lookup(location) + "&"
-        if elev != "":
-            url += 'asl=' + elev + "&"
-        url += "format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char"
-    else:
-        # add error handling here
-        return
-    print(url)
-    # checks if a recent (<3hr) model is already saved
-    forecast_filename = model + "_" + location + '_' + elev + '.json'
-    if os.path.exists(FORECASTS_FOLDER+forecast_filename):
-        with open(FORECASTS_FOLDER+forecast_filename, 'r') as file:
-            saved_forecast = json.load(file)
-        if datetime.strptime(saved_forecast['metadata']['modelrun_utc'], '%Y-%m-%d %H:%M') + timedelta(hours=3) > datetime.utcnow():
-            print('already gotten')
-            return
-    # gets a new model from meteoblue
-    response = requests.get(url).json()
-    with open(FORECASTS_FOLDER+forecast_filename, "w") as file:
-        json.dump(response, file)
-
-
-def compress_loc(location):
-    for prefix in ('mount ', 'mt ', 'pt ', 'pt. ', 'point'):
-        if prefix in location:
-            return location.split(prefix)[0]
-    if ',' in location:
-        return location.split(',')[0][-2:] + location[-2:]
-    else:
-        return location
-
-
-def text_forecast(location, elev, model, request_start):
+# combines headers and forecast data to return string of forecast in sms length
+def build_sms_forecast(location, elev, model, request_start):
     with open(FORECASTS_FOLDER + model + "_" + location + '_' + elev + '.json', 'r') as file:
             forecast = json.load(file)
-    if model == 'mbd':
-        # if no request start specifified, make start of available forecast
-        if request_start == '':
-            request_start = forecast['metadata']['modelrun_utc'][-8:-6]
-        return compress_loc(location)[0:4] + str(round(int(forecast['metadata']['height'])*.00328084)).rjust(2, '0') + 'mD\n' + ''.join(format_day_forecast(forecast['trend_day'], request_start))
-    elif model == 'mb6':
+    if model == 'mb6':
         # if no request start specifified, make start of available forecast
         if request_start == '':
             request_start = forecast['metadata']['modelrun_utc'][-8:-3]
@@ -126,11 +141,26 @@ def text_forecast(location, elev, model, request_start):
         if request_start == '':
             request_start = forecast['metadata']['modelrun_utc'][-8:-3]
         return compress_loc(location)[0:4] + str(round(int(forecast['metadata']['height'])*.00328084)).rjust(2, '0') + 'm3\n' + ''.join(format_3hr_forecast(forecast['data_1h'], request_start))
+    # if model == 'mbd' give daily forecast, or if bad model is requested give daily by default
     else:
-        # add error handling here
-        return
+        # if no request start specifified, make start of available forecast
+        if request_start == '':
+            request_start = forecast['metadata']['modelrun_utc'][-8:-6]
+        return compress_loc(location)[0:4] + str(round(int(forecast['metadata']['height'])*.00328084)).rjust(2, '0') + 'mD\n' + ''.join(format_day_forecast(forecast['trend_day'], request_start))
 
 
+# returns string of location without unnecesary characters to send to inreach
+def compress_loc(location):
+    for prefix in ('mount ', 'mt ', 'pt ', 'pt. ', 'point '):
+        if prefix in location:
+            return location.split(prefix)[0]
+    if ',' in location:
+        return location.split(',')[0][-2:] + location[-2:]
+    else:
+        return location
+
+
+# formats 7 day (24-hour incriment) Meteoblue data for sms inreach reply
 def format_day_forecast(mb_day, req_start):
     start = None
     for offset, day in enumerate(mb_day['time']):
@@ -174,6 +204,7 @@ def format_day_forecast(mb_day, req_start):
     return [time, high, low, clear, snow, precip_prob, wind, predictability]
 
 
+# formats 1 day (3-hour incriment) Meteoblue data for sms inreach reply
 def format_3hr_forecast(mb_1hr, req_start):
     start = None
     for offset, day in enumerate(mb_1hr['time']):
@@ -216,6 +247,7 @@ def format_3hr_forecast(mb_1hr, req_start):
     return [time, temp, snow, precip_prob, clear, wind, wind_dir]
 
 
+# formats 2 day (6-hour incriment) Meteoblue data for sms inreach reply
 def format_6hr_forecast(mb_1hr, req_start):
     start = None
     for offset, day in enumerate(mb_1hr['time']):
@@ -258,78 +290,62 @@ def format_6hr_forecast(mb_1hr, req_start):
     return [time, temp, snow, precip_prob, clear, wind, wind_dir]
 
 
-def load_messages(email_pickle):
-    with open(email_pickle, 'rb') as file:
-        return pickle.load(file)
-
-
-def request_from_message(msg):
-    req = Request()
-    if '$model ' in str(msg.body):
-        req.model = str(msg.body).split('$model ')[1].split('$')[0]
-    if '$loc ' in str(msg.body):
-        req.location = str(msg.body).split('$loc ')[1].split('$')[0]
-    if '$elev ' in str(msg.body):
-        req.elevation = str(round(int(str(msg.body).split('$elev ')[1].split('$')[0])/3.28084))
-    if '$start ' in str(msg.body):
-        req.start = str(msg.body).split('$start ')[1].split('$')[0]
-    if '~test~' in str(msg.body):
-        req.test = True
-    else:
-        req.test = False
-    return req
-
-
+# finds reply URL in email
 def extract_map_share_url(text):
     url = re.search("(?P<url>https?://[^\s]+)", text).group("url")
     if url == 'http://explore.garmin.com/inreach':
         url = os.getenv('FALLBACK_INREACH_REPLY_URL')
-    logging.info('sending via ' + url)
     return url
 
 
+# combines mapshare URL and sms forecast into HTML payload
 def create_map_share_payload(url, text):
     soup = BeautifulSoup(requests.get(url).content, 'html.parser')
     message_id = soup.find("input", {"id": "MessageId"}).get('value')
     guid = soup.find("input", {"id": "Guid"}).get('value')
     reply_address = soup.find("input", {"id": "ReplyAddress"}).get('value')
-
     return {'ReplyAddress': reply_address,
             'ReplyMessage': text,
             'MessageId': message_id,
             'Guid': guid}
 
-def notify_map_share(url, text):
+
+# opens MapShare and sends message
+def notify_map_share(url, text, test):
     payload = create_map_share_payload(url, text)
-    logging.debug(payload)
-
+    logger.debug(payload)
     session = requests.Session()
-    response = session.post(
-        'https://us0.explore.garmin.com/textmessage/txtmsg',
-        headers={'User-Agent': 'Mozilla/5.0'},
-        data=payload)
-
-    logging.info(response.headers)
+    if not test:
+        session.post(
+            'https://us0.explore.garmin.com/textmessage/txtmsg',
+            headers={'User-Agent': 'Mozilla/5.0'},
+            data=payload)
+        logger.info('sending via ' + url.split('?extId=')[0] + '?extId=************' + url.split('?extId=')[1][12:])
+    else:
+        logger.info('this forecast request is a test')
 
 
 def main():
     configure()
     request_messages = load_messages(MESSAGES_FILE)
     for message in request_messages:
-        request = request_from_message(message)
-        print(request)
-        get_forecast(request.location, request.elevation, request.model)
-        reply = text_forecast(request.location, request.elevation, request.model, request.start)
-        print(reply)
-        print(len(reply))
+        inreach_req = extract_request_from_message(message)
+        logger.info('inreach forecast request:\n' + str(inreach_req))
+        get_meteoblue_forecast(inreach_req.location, inreach_req.elevation, inreach_req.model)
+        reply = build_sms_forecast(inreach_req.location, inreach_req.elevation, inreach_req.model, inreach_req.start)
+        logger.info('weather forecast reply:\n' + reply)
         map_share_url = extract_map_share_url(str(message))
-        logging.basicConfig(level=logging.DEBUG)
-        if not request.test:
-            notify_map_share(map_share_url, reply)
+        notify_map_share(map_share_url, reply, inreach_req.test)
 
 
 FORECASTS_FOLDER = 'forecasts/'
 MESSAGES_FILE = 'new_messages.pickle'
 MB_LOCATIONS_LIST = 'forecast_locations.json'
+
+logging.basicConfig(filename="logs/" + datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + ".log",
+                    format='%(asctime)s %(message)s',
+                    filemode='w')
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 main()

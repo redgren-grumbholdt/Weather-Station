@@ -1,4 +1,0 @@
-EVENT LOG:
-03/18/2024, 17:00:18      Ignoring emails previous to 10 Jun 2023 13:47:43 +0000 (UTC)
-03/18/2024, 17:00:18      Checking Emails...
-03/18/2024, 17:00:22      Received forecast request from Mon, 18 Mar 2024 12:51:16 -0400

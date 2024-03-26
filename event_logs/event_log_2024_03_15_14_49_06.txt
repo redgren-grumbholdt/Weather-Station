@@ -1,2 +1,0 @@
-EVENT LOG:
-03/15/2024, 14:49:10      ERROR: name 'ignore_previous_to' is not defined

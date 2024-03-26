@@ -1,3 +1,0 @@
-EVENT LOG:
-03/15/2024, 17:31:57      Ignoring emails previous to Wed, 19 Apr 2023 20:39:33 -0400
-03/15/2024, 17:31:57      Checking Emails...

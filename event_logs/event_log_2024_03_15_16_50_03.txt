@@ -1,2 +1,0 @@
-EVENT LOG:
-03/15/2024, 16:50:08      ERROR: 'NoneType' object is not subscriptable
