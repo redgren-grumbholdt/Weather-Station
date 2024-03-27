@@ -21,6 +21,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: 'Create env file'
+        run: |
+          touch .env
+          echo "${{ secrets.ENV_FILE }}" > .env
+          cat .env
       - name: execute py script # run Weather_Station.py
         run: python Weather_Station.py
         
