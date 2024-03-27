@@ -1,4 +1,0 @@
-2024-03-27 12:39:49,611 "GET /?state=NmnoYVgnLqvM4pKwCqn4tS7iIfmlHf&code=4/0AeaYSHCFSIAehY0eYFgdMfIgB0pDYLe6sd2dQZJG6jhPTAVdBhA7MeDiGo7Rl-2kecKmgg&scope=https://www.googleapis.com/auth/gmail.readonly HTTP/1.1" 200 65
-2024-03-27 12:39:49,718 file_cache is only supported with oauth2client<4.0.0
-2024-03-27 12:39:53,851 retrieved 48 emails
-2024-03-27 12:39:53,856 found 0 new forecast request(s)
