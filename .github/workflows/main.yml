@@ -25,10 +25,10 @@ jobs:
           touch .env
           echo "${{ secrets.ENV_FILE }}" > .env
           cat .env
-      - run: echo TOKEN_GMAIL | base64 -d > lib/token.pickle
+      - run: echo TOKEN_GMAIL | base64 -d > token.pickle
         # env:
         #   SECRETS_FILE_CONTENT: ${{ secrets.TOKEN_GMAIL }}
-      - run: echo CLIENT_SECRET_GMAIL | base64 -d > lib/client_secret_114502949276-qujopcn3v6e65fdkjm1f7mikmdcicbad.apps.googleusercontent.com.json
+      - run: echo CLIENT_SECRET_GMAIL | base64 -d > client_secret_114502949276-qujopcn3v6e65fdkjm1f7mikmdcicbad.apps.googleusercontent.com.json
         # env:
         #   SECRETS_FILE_CONTENT: ${{ secrets.CLIENT_SECRET_GMAIL }}
       
