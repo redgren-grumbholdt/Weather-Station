@@ -365,7 +365,6 @@ def format_6hr_forecast(mb_1hr, req_start):
 # finds reply URL in email
 def extract_map_share_url(text):
     url = re.search("(?P<url>https?://[^\s]+)", text).group("url")
-    #url.replace('&', '&amp;')
     if url == 'http://explore.garmin.com/inreach':
         url = os.getenv('FALLBACK_INREACH_REPLY_URL')
     return url
@@ -376,7 +375,6 @@ def create_map_share_payload(url, text):
     soup = BeautifulSoup(requests.get(url).content, 'html.parser')
     message_id = soup.find("input", {"id": "MessageId"}).get('value')
     guid = soup.find("input", {"id": "Guid"}).get('value')
-    #reply_address = soup.find("input", {"id": "ReplyAddress"}).get('value')
     return {'ReplyAddress': 'dewey.mtn.forecasts@gmail.com',
             'ReplyMessage': text,
             'MessageId': message_id,
