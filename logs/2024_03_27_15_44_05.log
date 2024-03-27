@@ -1,0 +1,159 @@
+2024-03-27 15:44:05,124 token file exists
+2024-03-27 15:44:05,124 token no longer valid
+2024-03-27 15:44:05,125 Making request: POST https://oauth2.googleapis.com/token
+2024-03-27 15:44:05,126 Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2024-03-27 15:44:05,294 https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2024-03-27 15:44:05,300 file_cache is only supported with oauth2client<4.0.0
+2024-03-27 15:44:05,303 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?maxResults=50&includeSpamTrash=true&alt=json
+2024-03-27 15:44:05,478 retrieved 50 emails
+2024-03-27 15:44:05,479 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e80945c1e36a8a?alt=json
+2024-03-27 15:44:06,524 Encoding detection: utf_8 will be used as a fallback match
+2024-03-27 15:44:06,524 Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2024-03-27 15:44:06,527 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e804ebaa605242?alt=json
+2024-03-27 15:44:06,596 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:06,598 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e8039341513be8?alt=json
+2024-03-27 15:44:06,663 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:06,665 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e8028bc1216767?alt=json
+2024-03-27 15:44:06,729 Encoding detection: utf_8 will be used as a fallback match
+2024-03-27 15:44:06,729 Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2024-03-27 15:44:06,731 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e7fec830fc0fef?alt=json
+2024-03-27 15:44:06,804 Encoding detection: utf_8 is most likely the one.
+2024-03-27 15:44:06,807 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e7c9fcc5e43a55?alt=json
+2024-03-27 15:44:06,994 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:06,996 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e7c45dc8a6c43d?alt=json
+2024-03-27 15:44:07,073 Encoding detection: utf_8 will be used as a fallback match
+2024-03-27 15:44:07,073 Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2024-03-27 15:44:07,075 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e7bd0d187bf0fd?alt=json
+2024-03-27 15:44:07,144 Encoding detection: utf_8 will be used as a fallback match
+2024-03-27 15:44:07,144 Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2024-03-27 15:44:07,146 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e5a03dea4c7004?alt=json
+2024-03-27 15:44:07,216 Encoding detection: utf_8 is most likely the one.
+2024-03-27 15:44:07,218 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e5279ac63d5c92?alt=json
+2024-03-27 15:44:07,281 Encoding detection: utf_8 will be used as a fallback match
+2024-03-27 15:44:07,281 Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2024-03-27 15:44:07,283 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e4cbde9b2ce94f?alt=json
+2024-03-27 15:44:07,499 'data'
+2024-03-27 15:44:07,501 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e42d1e729f2b06?alt=json
+2024-03-27 15:44:07,566 'data'
+2024-03-27 15:44:07,568 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e3ebb881840de1?alt=json
+2024-03-27 15:44:07,641 Encoding detection: utf_8 is most likely the one.
+2024-03-27 15:44:07,643 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e3e48215a43d36?alt=json
+2024-03-27 15:44:07,821 Encoding detection: utf_8 is most likely the one.
+2024-03-27 15:44:07,823 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e3aae10cccec24?alt=json
+2024-03-27 15:44:07,901 Encoding detection: utf_8 is most likely the one.
+2024-03-27 15:44:07,903 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e3aada98136d27?alt=json
+2024-03-27 15:44:07,971 Encoding detection: utf_8 is most likely the one.
+2024-03-27 15:44:07,973 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e3aad9d196e063?alt=json
+2024-03-27 15:44:08,037 Encoding detection: utf_8 is most likely the one.
+2024-03-27 15:44:08,039 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18a0b9673199b723?alt=json
+2024-03-27 15:44:08,117 Encoding detection: utf_8 is most likely the one.
+2024-03-27 15:44:08,120 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/188a59018a38848a?alt=json
+2024-03-27 15:44:08,188 Encoding detection: utf_8 will be used as a fallback match
+2024-03-27 15:44:08,188 Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2024-03-27 15:44:08,190 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18827148d63fdc87?alt=json
+2024-03-27 15:44:08,256 Encoding detection: utf_8 will be used as a fallback match
+2024-03-27 15:44:08,257 Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2024-03-27 15:44:08,259 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/1881b0bcab37ef81?alt=json
+2024-03-27 15:44:08,387 Encoding detection: utf_8 will be used as a fallback match
+2024-03-27 15:44:08,387 Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2024-03-27 15:44:08,389 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/188123344ae608d5?alt=json
+2024-03-27 15:44:08,462 Encoding detection: utf_8 will be used as a fallback match
+2024-03-27 15:44:08,462 Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2024-03-27 15:44:08,464 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/1881102731e03849?alt=json
+2024-03-27 15:44:08,532 Encoding detection: utf_8 will be used as a fallback match
+2024-03-27 15:44:08,532 Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2024-03-27 15:44:08,534 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/188097355e4346ce?alt=json
+2024-03-27 15:44:08,603 Encoding detection: utf_8 will be used as a fallback match
+2024-03-27 15:44:08,603 Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2024-03-27 15:44:08,605 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18803a60c47d23c6?alt=json
+2024-03-27 15:44:08,670 Encoding detection: utf_8 will be used as a fallback match
+2024-03-27 15:44:08,670 Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2024-03-27 15:44:08,672 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/1880399ba7b3966d?alt=json
+2024-03-27 15:44:08,743 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:08,745 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/188038ec026e89ec?alt=json
+2024-03-27 15:44:08,810 Encoding detection: utf_8 will be used as a fallback match
+2024-03-27 15:44:08,810 Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2024-03-27 15:44:08,812 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187fdb9a10a3b68d?alt=json
+2024-03-27 15:44:08,878 Encoding detection: utf_8 will be used as a fallback match
+2024-03-27 15:44:08,878 Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2024-03-27 15:44:08,880 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187fd86b40c878a5?alt=json
+2024-03-27 15:44:08,947 Encoding detection: utf_8 will be used as a fallback match
+2024-03-27 15:44:08,947 Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2024-03-27 15:44:08,949 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d8b8294b92faf?alt=json
+2024-03-27 15:44:09,040 Encoding detection: utf_8 will be used as a fallback match
+2024-03-27 15:44:09,040 Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2024-03-27 15:44:09,042 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d8ab879f6926c?alt=json
+2024-03-27 15:44:09,105 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:09,107 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d8a8b2ff2947e?alt=json
+2024-03-27 15:44:09,169 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:09,171 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d886579460987?alt=json
+2024-03-27 15:44:09,229 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:09,231 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d886550d58e51?alt=json
+2024-03-27 15:44:09,425 Encoding detection: utf_8 is most likely the one.
+2024-03-27 15:44:09,427 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d54d6b146cc88?alt=json
+2024-03-27 15:44:09,496 Encoding detection: utf_8 is most likely the one.
+2024-03-27 15:44:09,498 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d24ce13cd8b33?alt=json
+2024-03-27 15:44:09,561 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:09,563 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d24c3942a5577?alt=json
+2024-03-27 15:44:09,715 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:09,717 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d24b67cf7edea?alt=json
+2024-03-27 15:44:09,781 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:09,783 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d24b2afd6390b?alt=json
+2024-03-27 15:44:09,853 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:09,855 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d24ad9dccbd13?alt=json
+2024-03-27 15:44:09,916 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:09,919 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d24a6fe07cc40?alt=json
+2024-03-27 15:44:09,985 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:09,987 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d24a3e025dfc5?alt=json
+2024-03-27 15:44:10,080 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:10,082 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d24a02bd6cfe1?alt=json
+2024-03-27 15:44:10,142 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:10,144 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d249d2395b37b?alt=json
+2024-03-27 15:44:10,195 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:10,197 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d2499ebe2b845?alt=json
+2024-03-27 15:44:10,258 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:10,260 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187ce613d9e8fb8a?alt=json
+2024-03-27 15:44:10,321 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:10,323 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187cde75c587328a?alt=json
+2024-03-27 15:44:10,383 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:10,385 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187c9559ddde8d8d?alt=json
+2024-03-27 15:44:10,455 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:10,457 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187bdf17d232b43e?alt=json
+2024-03-27 15:44:10,525 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:10,527 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187b696bcb1e7fa4?alt=json
+2024-03-27 15:44:10,656 Encoding detection: ascii is most likely the one.
+2024-03-27 15:44:10,657 decoded 48 emails
+2024-03-27 15:44:10,658 found 1 new forecast request(s)
+2024-03-27 15:44:10,658 inreach forecast request:
+38.58109,-107.71581
+2371
+mb3
+             
+test: False
+2024-03-27 15:44:10,658 getting forecast from https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=****************&lat=38.58109&lon=-107.71581&asl=2371&format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char
+2024-03-27 15:44:10,659 Starting new HTTPS connection (1): my.meteoblue.com:443
+2024-03-27 15:44:11,095 https://my.meteoblue.com:443 "GET /packages/basic-1h_clouds-1h?apikey=HgCp2KIVuGfWvLYo&lat=38.58109&lon=-107.71581&asl=2371&format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char HTTP/1.1" 200 None
+2024-03-27 15:44:11,100 weather forecast reply:
+385 -1077 8 3
+2715*28
+T 38 35 28* 26 25 27 36 45
+S  -  -  -*  -  -  -  -  -
+P 0 0 0* 0 0 0 0 0
+C 2 2 0* 0 0 0 0 1
+W 1 1 1* 1 1 1 1 2
+D  W  W  S* SE SE SE  S SW
+2024-03-27 15:44:11,101 Starting new HTTPS connection (1): us0.explore.garmin.com:443
+2024-03-27 15:44:11,428 https://us0.explore.garmin.com:443 "GET /textmessage/txtmsg?extId=08db51e7-1e7b-5fb9-0022-484758110000&amp;adr=dewey.mtn.forecasts%40gmail.com HTTP/1.1" 200 None
+2024-03-27 15:44:11,438 {'ReplyAddress': None, 'ReplyMessage': '385 -1077 8 3\n2715*28\nT 38 35 28* 26 25 27 36 45\nS  -  -  -*  -  -  -  -  -\nP 0 0 0* 0 0 0 0 0\nC 2 2 0* 0 0 0 0 1\nW 1 1 1* 1 1 1 1 2\nD  W  W  S* SE SE SE  S SW', 'MessageId': '353042369', 'Guid': '08db51e7-1e7b-5fb9-0022-484758110000'}
+2024-03-27 15:44:11,439 Starting new HTTPS connection (1): us0.explore.garmin.com:443
+2024-03-27 15:44:11,657 https://us0.explore.garmin.com:443 "POST /textmessage/txtmsg HTTP/1.1" 500 None
+2024-03-27 15:44:11,658 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************b-5fb9-0022-484758110000&amp;adr=dewey.mtn.forecasts%40gmail.com
+2024-03-27 15:44:11,658 <Response [500]>
+2024-03-27 15:44:11,659 reply url failed! retrying via fallback url
+2024-03-27 15:44:11,660 Starting new HTTPS connection (1): us0.explore.garmin.com:443
+2024-03-27 15:44:11,868 https://us0.explore.garmin.com:443 "GET /textmessage/txtmsg?extId=08db69b9-38e5-0b2f-000d-3aa728400000&adr=dewey.mtn.forecasts%40gmail.com HTTP/1.1" 200 None
+2024-03-27 15:44:11,878 {'ReplyAddress': 'dewey.mtn.forecasts@gmail.com', 'ReplyMessage': '385 -1077 8 3\n2715*28\nT 38 35 28* 26 25 27 36 45\nS  -  -  -*  -  -  -  -  -\nP 0 0 0* 0 0 0 0 0\nC 2 2 0* 0 0 0 0 1\nW 1 1 1* 1 1 1 1 2\nD  W  W  S* SE SE SE  S SW', 'MessageId': '360739443', 'Guid': '08db69b9-38e5-0b2f-000d-3aa728400000'}
+2024-03-27 15:44:11,879 Starting new HTTPS connection (1): us0.explore.garmin.com:443
+2024-03-27 15:44:12,108 https://us0.explore.garmin.com:443 "POST /textmessage/txtmsg HTTP/1.1" 200 135
+2024-03-27 15:44:12,108 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************5-0b2f-000d-3aa728400000&adr=dewey.mtn.forecasts%40gmail.com
+2024-03-27 15:44:12,109 <Response [200]>
