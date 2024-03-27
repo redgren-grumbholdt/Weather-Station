@@ -26,13 +26,12 @@ jobs:
       - run: |
           touch .env
           echo "${{ secrets.ENV_FILE }}" > .env
-          cat .env
-      - run: echo $TOKEN_GMAIL | base64 -d > token.pickle
-        env:
-          TOKEN_GMAIL: ${{ secrets.TOKEN_GMAIL }}
-      - run: echo $CLIENT_SECRET_GMAIL | base64 -d > client_secret_114502949276-qujopcn3v6e65fdkjm1f7mikmdcicbad.apps.googleusercontent.com.json
-        env:
-          CLIENT_SECRET_GMAIL: ${{ secrets.CLIENT_SECRET_GMAIL }}
+      - run: |
+          touch token.pickle
+          echo "${{ secrets.TOKEN_GMAIL }}" | base64 -d > token.pickle
+      - run: |
+          touch client_secret_114502949276-qujopcn3v6e65fdkjm1f7mikmdcicbad.apps.googleusercontent.com.json
+          echo "${{ secrets.CLIENT_SECRET_GMAIL }}" | base64 -d > client_secret_114502949276-qujopcn3v6e65fdkjm1f7mikmdcicbad.apps.googleusercontent.com.json
       
       - run: python Weather_Station.py
         
