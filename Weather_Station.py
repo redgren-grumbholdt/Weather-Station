@@ -109,6 +109,7 @@ def retrieve_emails(secret_file, max_retrievals):
             body = soup.body()
             plaintext_messages.append(Message(date, sender, subject, body))
         except Exception as e:
+            logger.warning(e)
             pass
     
     logger.debug('decoded ' + str(len(plaintext_messages)) + ' emails')
