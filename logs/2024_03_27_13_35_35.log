@@ -1,0 +1,106 @@
+2024-03-27 13:35:35,607 token file exists
+2024-03-27 13:35:35,608 file_cache is only supported with oauth2client<4.0.0
+2024-03-27 13:35:35,619 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?maxResults=50&includeSpamTrash=true&alt=json
+2024-03-27 13:35:35,786 retrieved 50 emails
+2024-03-27 13:35:35,788 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e7fec830fc0fef?alt=json
+2024-03-27 13:35:35,858 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:35,860 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e7c9fcc5e43a55?alt=json
+2024-03-27 13:35:35,927 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:35,929 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e7c45dc8a6c43d?alt=json
+2024-03-27 13:35:35,993 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:35,994 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e7bd0d187bf0fd?alt=json
+2024-03-27 13:35:36,054 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:36,056 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e5a03dea4c7004?alt=json
+2024-03-27 13:35:36,124 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:36,125 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e5279ac63d5c92?alt=json
+2024-03-27 13:35:36,189 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:36,191 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e4cbde9b2ce94f?alt=json
+2024-03-27 13:35:36,253 'data'
+2024-03-27 13:35:36,255 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e42d1e729f2b06?alt=json
+2024-03-27 13:35:36,325 'data'
+2024-03-27 13:35:36,328 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e3ebb881840de1?alt=json
+2024-03-27 13:35:36,393 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:36,394 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e3e48215a43d36?alt=json
+2024-03-27 13:35:36,459 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:36,460 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e3aae10cccec24?alt=json
+2024-03-27 13:35:36,533 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:36,535 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e3aada98136d27?alt=json
+2024-03-27 13:35:36,599 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:36,600 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18e3aad9d196e063?alt=json
+2024-03-27 13:35:36,669 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:36,671 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18a0b9673199b723?alt=json
+2024-03-27 13:35:36,733 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:36,735 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/188a59018a38848a?alt=json
+2024-03-27 13:35:36,844 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:36,845 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18827148d63fdc87?alt=json
+2024-03-27 13:35:36,909 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:36,911 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/1881b0bcab37ef81?alt=json
+2024-03-27 13:35:36,971 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:36,972 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/188123344ae608d5?alt=json
+2024-03-27 13:35:37,037 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:37,039 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/1881102731e03849?alt=json
+2024-03-27 13:35:37,100 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:37,101 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/188097355e4346ce?alt=json
+2024-03-27 13:35:37,172 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:37,174 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/18803a60c47d23c6?alt=json
+2024-03-27 13:35:37,218 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:37,220 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/1880399ba7b3966d?alt=json
+2024-03-27 13:35:37,264 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:37,266 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/188038ec026e89ec?alt=json
+2024-03-27 13:35:37,323 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:37,325 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187fdb9a10a3b68d?alt=json
+2024-03-27 13:35:37,381 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:37,383 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187fd86b40c878a5?alt=json
+2024-03-27 13:35:37,443 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:37,445 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d8b8294b92faf?alt=json
+2024-03-27 13:35:37,490 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:37,492 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d8ab879f6926c?alt=json
+2024-03-27 13:35:37,552 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:37,553 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d8a8b2ff2947e?alt=json
+2024-03-27 13:35:37,618 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:37,619 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d886579460987?alt=json
+2024-03-27 13:35:37,686 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:37,687 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d886550d58e51?alt=json
+2024-03-27 13:35:37,735 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:37,737 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d54d6b146cc88?alt=json
+2024-03-27 13:35:37,806 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:37,808 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d24ce13cd8b33?alt=json
+2024-03-27 13:35:37,868 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:37,870 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d24c3942a5577?alt=json
+2024-03-27 13:35:37,940 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:37,942 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d24b67cf7edea?alt=json
+2024-03-27 13:35:38,000 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:38,001 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d24b2afd6390b?alt=json
+2024-03-27 13:35:38,060 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:38,062 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d24ad9dccbd13?alt=json
+2024-03-27 13:35:38,123 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:38,124 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d24a6fe07cc40?alt=json
+2024-03-27 13:35:38,169 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:38,171 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d24a3e025dfc5?alt=json
+2024-03-27 13:35:38,219 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:38,221 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d24a02bd6cfe1?alt=json
+2024-03-27 13:35:38,286 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:38,287 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d249d2395b37b?alt=json
+2024-03-27 13:35:38,334 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:38,336 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187d2499ebe2b845?alt=json
+2024-03-27 13:35:38,397 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:38,398 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187ce613d9e8fb8a?alt=json
+2024-03-27 13:35:38,444 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:38,445 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187cde75c587328a?alt=json
+2024-03-27 13:35:38,542 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:38,544 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187c9559ddde8d8d?alt=json
+2024-03-27 13:35:38,610 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:38,612 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187bdf17d232b43e?alt=json
+2024-03-27 13:35:38,660 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:38,662 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187b696bcb1e7fa4?alt=json
+2024-03-27 13:35:38,712 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:38,714 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187b0a670fd3b315?alt=json
+2024-03-27 13:35:38,775 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:38,776 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187af96f3a6782a9?alt=json
+2024-03-27 13:35:38,844 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:38,845 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187af5cdbe27b8a1?alt=json
+2024-03-27 13:35:38,911 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:38,913 URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/187af2ff1e684057?alt=json
+2024-03-27 13:35:39,291 Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2024-03-27 13:35:39,291 decoded 0 emails
+2024-03-27 13:35:39,291 found 0 new forecast request(s)
