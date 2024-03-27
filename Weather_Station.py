@@ -59,8 +59,10 @@ def retrieve_emails(secret_file, max_retrievals):
         #reads the token from the file and store it in the variable creds
         with open('token.pickle', 'rb') as token:
             creds = pickle.load(token)
+        logger.debug('token file exists')
     # if credentials are not available or are invalid, ask the user to log in
     if not creds or not creds.valid:
+        logger.debug('token no longer valid')
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
@@ -429,6 +431,6 @@ logging.basicConfig(filename="logs/" + datetime.now().strftime("%Y_%m_%d_%H_%M_%
                     format='%(asctime)s %(message)s',
                     filemode='w')
 logger = logging.getLogger()
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 
 main()
