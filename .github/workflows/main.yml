@@ -1,6 +1,10 @@
 name: run Weather_Station.py
 
 on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main ]
   schedule:
     - cron: '0/10 * * * *'
 
