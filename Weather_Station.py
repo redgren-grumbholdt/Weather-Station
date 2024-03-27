@@ -77,6 +77,7 @@ def retrieve_emails(secret_file, max_retrievals):
     result = service.users().messages().list(maxResults=max_retrievals, userId='me', includeSpamTrash='booleanTrue').execute()
     messages = result.get('messages')
     # messages is a list of dictionaries where each dictionary contains a message id
+    logger.info('retrieved ' + str(len(messages)) + ' emails')
     
     # gets plaintext from message dictionaries
     plaintext_messages = []
@@ -110,7 +111,7 @@ def retrieve_emails(secret_file, max_retrievals):
         except Exception as e:
             pass
     
-    logger.info('retrieved ' + str(len(plaintext_messages)) + ' emails')
+    logger.debug('decoded ' + str(len(plaintext_messages)) + ' emails')
     return plaintext_messages
 
 
