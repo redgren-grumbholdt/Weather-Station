@@ -388,11 +388,12 @@ def notify_map_share(url, text, test):
     logger.debug(payload)
     session = requests.Session()
     if not test:
-        session.post(
+        response = session.post(
             'https://us0.explore.garmin.com/textmessage/txtmsg',
             headers={'User-Agent': 'Mozilla/5.0'},
             data=payload)
         logger.info('sending via ' + url.split('?extId=')[0] + '?extId=************' + url.split('?extId=')[1][12:])
+        logger.debug(response)
     else:
         logger.info('this forecast request is a test')
 
@@ -422,7 +423,7 @@ def main():
         logger.info('weather forecast reply:\n' + reply)
         map_share_url = extract_map_share_url(str(message))
         notify_map_share(map_share_url, reply, inreach_req.test)
-        update_prev_read_log(message, EMAIL_READ_LOG)
+        #update_prev_read_log(message, EMAIL_READ_LOG)
 
 
 FORECASTS_FOLDER = 'forecasts/'
@@ -433,6 +434,6 @@ logging.basicConfig(filename="logs/" + datetime.now().strftime("%Y_%m_%d_%H_%M_%
                     format='%(asctime)s %(message)s',
                     filemode='w')
 logger = logging.getLogger()
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 
 main()
