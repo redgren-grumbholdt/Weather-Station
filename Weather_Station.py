@@ -365,6 +365,7 @@ def format_6hr_forecast(mb_1hr, req_start):
 # finds reply URL in email
 def extract_map_share_url(text):
     url = re.search("(?P<url>https?://[^\s]+)", text).group("url")
+    url.replace('&', '&amp;')
     if url == 'http://explore.garmin.com/inreach':
         url = os.getenv('FALLBACK_INREACH_REPLY_URL')
     return url
