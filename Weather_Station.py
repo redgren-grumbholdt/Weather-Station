@@ -392,10 +392,13 @@ def notify_map_share(url, text, test):
             'https://us0.explore.garmin.com/textmessage/txtmsg',
             headers={'User-Agent': 'Mozilla/5.0'},
             data=payload)
-        logger.info('sending via ' + url.split('?extId=')[0] + '?extId=************' + url.split('?extId=')[1][12:])
+        logger.info('sending via ' + url.split('?extId=')[0] + 
+                    '?extId=************' + url.split('?extId=')[1][12:])
         logger.debug(response)
+        return response.ok
     else:
         logger.info('this forecast request is a test')
+        return test
 
 
 def update_prev_read_log(msg, log):
@@ -422,8 +425,11 @@ def main():
         reply = build_sms_forecast(inreach_req.location, inreach_req.elevation, inreach_req.model, inreach_req.start)
         logger.info('weather forecast reply:\n' + reply)
         map_share_url = extract_map_share_url(str(message))
-        notify_map_share(map_share_url, reply, inreach_req.test)
-        #update_prev_read_log(message, EMAIL_READ_LOG)
+        first_try_success = notify_map_share(map_share_url, reply, inreach_req.test)
+        if not first_try_success:
+            logger.warning('reply url failed! retrying via fallback url')
+            notify_map_share(os.getenv('FALLBACK_INREACH_REPLY_URL'), reply, inreach_req.test)
+        update_prev_read_log(message, EMAIL_READ_LOG)
 
 
 FORECASTS_FOLDER = 'forecasts/'
