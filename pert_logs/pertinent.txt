@@ -1,1 +1,0 @@
-this is a folder of all the logs of runs that found new messages
