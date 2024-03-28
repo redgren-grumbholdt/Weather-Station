@@ -408,7 +408,7 @@ def update_prev_read_log(msg, log):
             file.write(msg.date)
 
 
-def main():
+def main(log_file):
     configure()
     # retrieves messages from gmail
     msgs = retrieve_emails(os.getenv('GOOGLE_SECRET_FILE'), 50)
@@ -417,13 +417,9 @@ def main():
             ignore_previous_to = file.read()
     new_request_messages = filter_new_forecast_requests(msgs, ignore_previous_to)
 
-    if len(new_request_messages) > 0:
-        logging.basicConfig(filename="logs/" + datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + ".log",
-                            format='%(asctime)s %(message)s',
-                            filemode='w')
-        logger = logging.getLogger()
-        logger.setLevel(logging.INFO)
-    
+    if len(new_request_messages)==0:
+        os.remove(log_file)
+        
     # sends forecast for each request message
     for message in new_request_messages:
         inreach_req = extract_request_from_message(message)
@@ -443,4 +439,11 @@ FORECASTS_FOLDER = 'forecasts/'
 MB_LOCATIONS_LIST = 'forecast_locations.json'
 EMAIL_READ_LOG = 'previously_read_log.txt'
 
-main()
+log_file = "logs/" + datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + ".log"
+logging.basicConfig(filename=log_file,
+                    format='%(asctime)s %(message)s',
+                    filemode='w')
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+main(log_file)
