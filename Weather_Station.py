@@ -416,6 +416,10 @@ def main():
     with open(EMAIL_READ_LOG, "r") as file:
             ignore_previous_to = file.read()
     new_request_messages = filter_new_forecast_requests(msgs, ignore_previous_to)
+
+    if len(new_request_messages) > 0:
+        logger.addHandler(logging.FileHandler("pert_logs/" + datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + ".log"))
+    
     # sends forecast for each request message
     for message in new_request_messages:
         inreach_req = extract_request_from_message(message)
