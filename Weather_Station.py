@@ -418,9 +418,11 @@ def main():
     new_request_messages = filter_new_forecast_requests(msgs, ignore_previous_to)
 
     if len(new_request_messages) > 0:
-        pert_file = "pert_logs/" + datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + ".log"
-        with open(pert_file, 'w') as file:
-            logger.addHandler(logging.FileHandler(pert_file)
+        logging.basicConfig(filename="logs/" + datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + ".log",
+                            format='%(asctime)s %(message)s',
+                            filemode='w')
+        logger = logging.getLogger()
+        logger.setLevel(logging.INFO)
     
     # sends forecast for each request message
     for message in new_request_messages:
@@ -440,11 +442,5 @@ def main():
 FORECASTS_FOLDER = 'forecasts/'
 MB_LOCATIONS_LIST = 'forecast_locations.json'
 EMAIL_READ_LOG = 'previously_read_log.txt'
-
-logging.basicConfig(filename="logs/" + datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + ".log",
-                    format='%(asctime)s %(message)s',
-                    filemode='w')
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
 
 main()
