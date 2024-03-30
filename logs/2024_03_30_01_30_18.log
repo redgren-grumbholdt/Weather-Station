@@ -1,0 +1,23 @@
+2024-03-30 01:30:18,752 file_cache is only supported with oauth2client<4.0.0
+2024-03-30 01:30:18,978 retrieved 50 emails
+2024-03-30 01:30:22,228 'data'
+2024-03-30 01:30:22,289 'data'
+2024-03-30 01:30:24,832 found 2 new forecast request(s)
+2024-03-30 01:30:24,832 inreach forecast request:
+38.11111,-107.71581
+2371
+mb3
+             
+test: True
+2024-03-30 01:30:24,832 getting forecast from https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=****************&lat=38.11111&lon=-107.71581&asl=2371&format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char
+2024-03-30 01:30:25,208 weather forecast reply:
+381 -1077 8 3
+3001*30
+T 40 37 38 46 51 50 46 42*
+S  -  -  -  -  -  -  -  -*
+P 0 0 0 0 0 0 0 0*
+C 0 0 1 2 1 1 1 0*
+W 1 1 1 2 2 2 2 1*
+D  S  S  S  S  S  S  S  S*
+2024-03-30 01:30:26,090 this forecast request is a test
+2024-03-30 01:30:26,090 invalid literal for int() with base 10: '7779\r\n~test~\r\n\r\nView the location or send a reply to Benjamin Dewey:\r\nhttps://us0.explore.garmin.com/textmessage/txtmsg?extId=08db51e7-1e7b-5fb9-0022-484758110000&amp;adr=dewey.mtn.forecasts%
