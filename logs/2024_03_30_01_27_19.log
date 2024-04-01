@@ -1,0 +1,6 @@
+2024-03-30 01:27:19,605 file_cache is only supported with oauth2client<4.0.0
+2024-03-30 01:27:19,736 retrieved 50 emails
+2024-03-30 01:27:21,979 'data'
+2024-03-30 01:27:22,064 'data'
+2024-03-30 01:27:24,488 found 1 new forecast request(s)
+2024-03-30 01:27:24,489 invalid literal for int() with base 10: '7779\r\n~test~\r\n\r\nView the location or send a reply to Benjamin Dewey:\r\nhttps://us0.explore.garmin.com/textmessage/txtmsg?extId=08db51e7-1e7b-5fb9-0022-484758110000&amp;adr=dewey.mtn.forecasts%

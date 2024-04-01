@@ -1,0 +1,5 @@
+2024-03-28 14:38:59,971 file_cache is only supported with oauth2client<4.0.0
+2024-03-28 14:39:00,136 retrieved 50 emails
+2024-03-28 14:39:02,001 'data'
+2024-03-28 14:39:02,078 'data'
+2024-03-28 14:39:05,309 found 0 new forecast request(s)

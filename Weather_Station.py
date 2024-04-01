@@ -412,7 +412,7 @@ def update_prev_read_log(msg, log):
             file.write(msg.date)
 
 
-def main():
+def main(log_file):
     configure()
     # retrieves messages from gmail
     msgs = retrieve_emails(os.getenv('GOOGLE_SECRET_FILE'), 50)
@@ -420,29 +420,38 @@ def main():
     with open(EMAIL_READ_LOG, "r") as file:
             ignore_previous_to = file.read()
     new_request_messages = filter_new_forecast_requests(msgs, ignore_previous_to)
+
+    if len(new_request_messages)==0:
+        os.remove(log_file)
+        
     # sends forecast for each request message
     for message in new_request_messages:
-        inreach_req = extract_request_from_message(message)
-        logger.info('inreach forecast request:\n' + str(inreach_req))
-        get_meteoblue_forecast(inreach_req.location, inreach_req.elevation, inreach_req.model)
-        reply = build_sms_forecast(inreach_req.location, inreach_req.elevation, inreach_req.model, inreach_req.start)
-        logger.info('weather forecast reply:\n' + reply)
-        map_share_url = extract_map_share_url(str(message))
-        first_try_success = notify_map_share(map_share_url, reply, inreach_req.test)
-        if not first_try_success:
-            logger.warning('reply url failed! retrying via fallback url')
-            notify_map_share(os.getenv('FALLBACK_INREACH_REPLY_URL'), reply, inreach_req.test)
-        update_prev_read_log(message, EMAIL_READ_LOG)
+        try:
+            inreach_req = extract_request_from_message(message)
+            logger.info('inreach forecast request:\n' + str(inreach_req))
+            get_meteoblue_forecast(inreach_req.location, inreach_req.elevation, inreach_req.model)
+            reply = build_sms_forecast(inreach_req.location, inreach_req.elevation, inreach_req.model, inreach_req.start)
+            logger.info('weather forecast reply:\n' + reply)
+            map_share_url = extract_map_share_url(str(message))
+            first_try_success = notify_map_share(map_share_url, reply, inreach_req.test)
+            if not first_try_success:
+                logger.warning('reply url failed! retrying via fallback url')
+                notify_map_share(os.getenv('FALLBACK_INREACH_REPLY_URL'), reply, inreach_req.test)
+            update_prev_read_log(message, EMAIL_READ_LOG)
+        except Exception as e:
+            logger.error(e)
+            pass
 
 
 FORECASTS_FOLDER = 'forecasts/'
 MB_LOCATIONS_LIST = 'forecast_locations.json'
 EMAIL_READ_LOG = 'previously_read_log.txt'
 
-logging.basicConfig(filename="logs/" + datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + ".log",
+log_file = "logs/" + datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + ".log"
+logging.basicConfig(filename=log_file,
                     format='%(asctime)s %(message)s',
                     filemode='w')
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-main()
+main(log_file)
