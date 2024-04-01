@@ -132,7 +132,11 @@ def extract_request_from_message(msg):
     if '$model ' in str(msg.body):
         req.model = str(msg.body).split('$model ')[1].split('$')[0]
     if '$loc ' in str(msg.body):
-        req.location = str(msg.body).split('$loc ')[1].split('$')[0]
+        loc = str(msg.body).split('$loc ')[1].split('$')[0]
+        if loc == 'here':
+            req.location = str(msg.body).split('sent this message from: Lat ')[1].split(' Lon ')[0] + ',' + str(msg.body).split(' Lon ')[1][:10]
+        else:
+            req.location = loc
     if '$elev ' in str(msg.body):
         req.elevation = str(round(int(str(msg.body).split('$elev ')[1].split('$')[0])/3.28084))
     if '$start ' in str(msg.body):
@@ -208,20 +212,20 @@ def build_sms_forecast(location, elev, model, request_start):
         if request_start == '':
             request_start = forecast['metadata']['modelrun_utc'][-8:-3]
         model_tag = '6'
-        formatted_data = format_6hr_forecast(forecast['data_1h'], request_start)
+        formatted_data = format_6hr_forecast(forecast['data_1h'], request_start.rjust(5, '0'))
     elif model == 'mb3':
          # if no request start specifified, make start of available forecast
         if request_start == '':
             request_start = forecast['metadata']['modelrun_utc'][-8:-3]
         model_tag = '3'
-        formatted_data = format_3hr_forecast(forecast['data_1h'], request_start)
+        formatted_data = format_3hr_forecast(forecast['data_1h'], request_start.rjust(5, '0'))
     # if model == 'mbd' give daily forecast, or if bad model is requested give daily by default
     else:
         # if no request start specifified, make start of available forecast
         if request_start == '':
             request_start = forecast['metadata']['modelrun_utc'][-8:-6]
         model_tag = 'D'
-        formatted_data = format_day_forecast(forecast['trend_day'], request_start)
+        formatted_data = format_day_forecast(forecast['trend_day'], request_start.rjust(2, '0'))
     return compress_loc(forecast) + ' ' + str(round(int(forecast['metadata']['height'])*.00328084)) + ' ' + model_tag + '\n' + ''.join(formatted_data)
 
 
