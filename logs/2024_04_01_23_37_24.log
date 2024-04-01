@@ -1,0 +1,23 @@
+2024-04-01 23:37:24,508 file_cache is only supported with oauth2client<4.0.0
+2024-04-01 23:37:24,744 retrieved 50 emails
+2024-04-01 23:37:29,203 'data'
+2024-04-01 23:37:29,351 'data'
+2024-04-01 23:37:33,125 found 1 new forecast request(s)
+2024-04-01 23:37:33,125 inreach forecast request:
+39.844311,-104.97591
+4442
+mbd
+2             
+test: True
+2024-04-01 23:37:33,125 getting forecast from https://my.meteoblue.com/packages/trendpro-day?apikey=****************&lat=39.844311&lon=-104.97591&asl=4442&format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char
+2024-04-01 23:37:33,685 weather forecast reply:
+398 -1049 15 D
+02-08
+H 47 56 61 62 43 43 45
+L 23 30 30 36 31 28 28
+C 12 10 12  7  3  7  3
+S  1  -  -  - .1  2 .1
+P 0 0 0 0 6 4 4
+W 1 1 1 2 2 2 1
+% 7 9 8 7 2 3 3
+2024-04-01 23:37:34,006 this forecast request is a test
