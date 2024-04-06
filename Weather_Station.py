@@ -415,7 +415,7 @@ def update_prev_read_log(msg, log):
 def main(log_file):
     configure()
     # retrieves messages from gmail
-    msgs = retrieve_emails(os.getenv('GOOGLE_SECRET_FILE'), 50)
+    msgs = retrieve_emails(os.getenv('GOOGLE_SECRET_FILE'), 20)
     # makes list of messages that are forecast requests and new
     with open(EMAIL_READ_LOG, "r") as file:
             ignore_previous_to = file.read()
