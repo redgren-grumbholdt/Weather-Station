@@ -1,0 +1,21 @@
+2024-04-28 23:00:22,417 file_cache is only supported with oauth2client<4.0.0
+2024-04-28 23:00:22,734 retrieved 20 emails
+2024-04-28 23:00:26,113 found 1 new forecast request(s)
+2024-04-28 23:00:26,113 inreach forecast request:
+62.88, -151.04
+2438
+mbd
+29             
+test: False
+2024-04-28 23:00:26,119 getting forecast from https://my.meteoblue.com/packages/trendpro-day?apikey=****************&lat=62.88&lon=-151.04&asl=2438&format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char
+2024-04-28 23:00:26,652 weather forecast reply:
+628 -1510 8 D
+29-05
+H 17 17 19 19 20 24 22
+L 14 14 15 15 17 18 20
+C 11  1  7 14 16  4  0
+S  - .3 .8  - .1  -  1
+P 1 5 6 4 5 6 6
+W 0 1 1 0 1 1 0
+% 8 6 5 5 4 3 2
+2024-04-28 23:00:27,318 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************2-4f1e-000d-3aa7b40b0000&amp;adr=dewey.mtn.forecasts%40gmail.com
