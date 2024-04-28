@@ -1,0 +1,20 @@
+2024-04-28 15:56:21,250 file_cache is only supported with oauth2client<4.0.0
+2024-04-28 15:56:21,369 retrieved 20 emails
+2024-04-28 15:56:23,927 found 1 new forecast request(s)
+2024-04-28 15:56:23,927 inreach forecast request:
+62.88, -151.04
+2438
+mb6
+02 00             
+test: False
+2024-04-28 15:56:23,984 requested forecast already retrived recently at 2024-04-28 15:42
+2024-04-28 15:56:23,984 weather forecast reply:
+628 -1510 8 6
+0200*03
+T 13 13 15 15* 14 14 16 17*
+S  -  - .1 .4*  - .1  - .2*
+P 5 2 4 5* 3 4 3 5*
+C 0 2 2 2* 0 2 2 1*
+W 0 0 0 1* 1 1 1 1*
+D SSESE S* S S SSE*
+2024-04-28 15:56:24,677 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************9-75e6-000d-3aa7c4080000&amp;adr=dewey.mtn.forecasts%40gmail.com
