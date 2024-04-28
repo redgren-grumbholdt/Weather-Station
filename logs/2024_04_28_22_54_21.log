@@ -1,0 +1,48 @@
+2024-04-28 22:54:21,195 file_cache is only supported with oauth2client<4.0.0
+2024-04-28 22:54:21,419 retrieved 20 emails
+2024-04-28 22:54:25,303 found 3 new forecast request(s)
+2024-04-28 22:54:25,304 inreach forecast request:
+62.88, -151.04
+2438
+mb6
+30 00             
+test: False
+2024-04-28 22:54:25,309 getting forecast from https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=****************&lat=62.88&lon=-151.04&asl=2438&format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char
+2024-04-28 22:54:25,791 weather forecast reply:
+628 -1510 8 6
+3000*01
+T 15 15 16 17* 16 15 17 18*
+S  -  -  - .3*  - .7 .1  -*
+P 0 2 4 4* 4 6 5 4*
+C 0 1 0 0* 0 1 2 3*
+W 0 0 1 1* 1 0 0 0*
+D S S S S* S S SSE*
+2024-04-28 22:54:26,465 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************e-4d13-0022-4847f41c0000&amp;adr=dewey.mtn.forecasts%40gmail.com
+2024-04-28 22:54:26,466 inreach forecast request:
+62.88, -151.04
+2438
+mb6
+02 00             
+test: False
+2024-04-28 22:54:26,466 requested forecast already retrived recently at 2024-04-28 22:54
+2024-04-28 22:54:26,467 weather forecast reply:
+628 -1510 8 6
+0200*03
+T 17 16 18 19* 18 17 19 20*
+S  -  -  -  -*  -  -  -  -*
+P 2 1 3 4* 3 4 4 3*
+C 0 4 4 4* 0 4 5 4*
+W 0 0 0 0* 0 0 0 1*
+DSESESE S* SSESESE*
+2024-04-28 22:54:27,226 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************e-7264-0022-4847f41c0000&amp;adr=dewey.mtn.forecasts%40gmail.com
+2024-04-28 22:54:27,227 inreach forecast request:
+62.88, -151.04
+2438
+mb6
+04 00             
+test: False
+2024-04-28 22:54:27,227 requested forecast already retrived recently at 2024-04-28 22:54
+2024-04-28 22:54:27,228 weather forecast reply:
+628 -1510 8 6
+Cannot retrieve the forecast for the days requested. Current available 6hr forecast is for 28 00-05 00
+2024-04-28 22:54:27,847 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************e-9616-0022-4847f41c0000&amp;adr=dewey.mtn.forecasts%40gmail.com
