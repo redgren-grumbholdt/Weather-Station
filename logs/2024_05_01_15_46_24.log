@@ -1,0 +1,71 @@
+2024-05-01 15:46:24,451 file_cache is only supported with oauth2client<4.0.0
+2024-05-01 15:46:24,686 retrieved 20 emails
+2024-05-01 15:46:27,917 found 4 new forecast request(s)
+2024-05-01 15:46:27,918 inreach forecast request:
+62.88, -151.04
+2438
+mb3
+04 00             
+test: False
+2024-05-01 15:46:27,999 getting forecast from https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=****************&lat=62.88&lon=-151.04&asl=2438&format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char
+2024-05-01 15:46:28,564 weather forecast reply:
+628 -1510 8 3
+0400*04
+T 17 17 17 17 17 17 18 18*
+S  2 .5  1 .9  - .7  -  -*
+P 8 8 8 8 7 7 6 6*
+C 0 0 0 0 1 0 0 0*
+W 1 1 1 1 1 1 1 1*
+D SE SE SE SE SE SE SE SE*
+2024-05-01 15:46:28,954 'NoneType' object has no attribute 'get'
+2024-05-01 15:46:28,954 inreach forecast request:
+62.88, -151.04
+2438
+mb3
+03 00             
+test: False
+2024-05-01 15:46:28,954 requested forecast already retrived recently at 2024-05-01 15:46
+2024-05-01 15:46:28,955 weather forecast reply:
+628 -1510 8 3
+0300*03
+T 16 15 15 16 16 17 18 17*
+S  -  - .4 .2  - .8  1 .8*
+P 0 4 8 7 6 7 8 8*
+C 0 0 0 0 0 0 0 0*
+W 1 1 1 1 1 1 2 1*
+D  S  S  S SE SE SE SE SE*
+2024-05-01 15:46:29,184 'NoneType' object has no attribute 'get'
+2024-05-01 15:46:29,185 inreach forecast request:
+62.88, -151.04
+2438
+mb3
+02 00             
+test: False
+2024-05-01 15:46:29,185 requested forecast already retrived recently at 2024-05-01 15:46
+2024-05-01 15:46:29,186 weather forecast reply:
+628 -1510 8 3
+0200*02
+T 11 10 13 14 15 16 17 17*
+S  -  -  -  - .1  -  -  -*
+P 0 0 0 1 4 3 1 2*
+C 0 0 0 0 0 0 1 1*
+W 1 1 1 1 1 1 1 1*
+D SE SE SE SE  S  S  S  S*
+2024-05-01 15:46:29,732 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************6-cb12-6045-bd2d34160000&amp;adr=dewey.mtn.forecasts%40gmail.com
+2024-05-01 15:46:29,734 inreach forecast request:
+62.88, -151.04
+2438
+mb3
+01 00             
+test: False
+2024-05-01 15:46:29,734 requested forecast already retrived recently at 2024-05-01 15:46
+2024-05-01 15:46:29,735 weather forecast reply:
+628 -1510 8 3
+0100*01
+T 14 13 12 14 15 15 16 15*
+S  - .1  -  - .5 .2  -  -*
+P 0 3 1 4 7 4 3 2*
+C 0 0 1 0 1 1 0 0*
+W 0 1 1 0 1 1 1 1*
+D  S  S  S SE  S SE SE SE*
+2024-05-01 15:46:30,836 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************6-a1c6-6045-bd2d34160000&amp;adr=dewey.mtn.forecasts%40gmail.com
