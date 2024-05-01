@@ -1,0 +1,37 @@
+2024-05-01 01:52:22,207 file_cache is only supported with oauth2client<4.0.0
+2024-05-01 01:52:22,448 retrieved 20 emails
+2024-05-01 01:52:25,790 found 2 new forecast request(s)
+2024-05-01 01:52:25,790 inreach forecast request:
+62.88, -151.04
+2438
+mb3
+02 00             
+test: False
+2024-05-01 01:52:25,796 getting forecast from https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=****************&lat=62.88&lon=-151.04&asl=2438&format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char
+2024-05-01 01:52:26,356 weather forecast reply:
+628 -1510 8 3
+0200*02
+T 13 13 13 14 16 17 18 17*
+S  -  -  -  - .4 .1  -  -*
+P 2 0 2 2 4 4 2 0*
+C 0 0 0 0 0 0 1 1*
+W 1 1 1 1 1 1 1 1*
+D SE  S SE SE  S  S  S  S*
+2024-05-01 01:52:27,118 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************9-2e78-0022-4847f41c0000&amp;adr=dewey.mtn.forecasts%40gmail.com
+2024-05-01 01:52:27,119 inreach forecast request:
+62.88, -151.04
+2438
+mb3
+01 00             
+test: False
+2024-05-01 01:52:27,120 requested forecast already retrived recently at 2024-05-01 01:52
+2024-05-01 01:52:27,120 weather forecast reply:
+628 -1510 8 3
+0100*01
+T 15 13 12 14 15 16 16 15*
+S  -  - .3 .1 .6  -  -  -*
+P 3 2 7 4 6 6 3 3*
+C 0 0 0 0 0 0 0 0*
+W 1 1 1 1 1 1 1 1*
+D  S  S  S  S SE SE SE SE*
+2024-05-01 01:52:27,925 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************9-0d0d-0022-4847f41c0000&amp;adr=dewey.mtn.forecasts%40gmail.com
