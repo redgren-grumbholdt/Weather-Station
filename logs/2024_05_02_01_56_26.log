@@ -1,0 +1,54 @@
+2024-05-02 01:56:26,793 file_cache is only supported with oauth2client<4.0.0
+2024-05-02 01:56:26,990 retrieved 20 emails
+2024-05-02 01:56:28,848 found 3 new forecast request(s)
+2024-05-02 01:56:28,848 inreach forecast request:
+62.88, -151.04
+2438
+mb3
+03 00             
+test: False
+2024-05-02 01:56:28,927 getting forecast from https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=****************&lat=62.88&lon=-151.04&asl=2438&format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char
+2024-05-02 01:56:29,387 weather forecast reply:
+628 -1510 8 3
+0300*03
+T 16 15 15 16 17 18 18 18*
+S  -  -  -  - .8 .6 .8  1*
+P 0 4 4 6 7 7 7 7*
+C 0 0 0 0 0 0 0 0*
+W 1 1 1 1 1 1 1 1*
+D  S  S SE SE SE SE SE SE*
+2024-05-02 01:56:32,321 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************f-7b84-6045-bd2d34160000&amp;adr=dewey.mtn.forecasts%40gmail.com
+2024-05-02 01:56:32,323 inreach forecast request:
+62.88, -151.04
+2438
+mb3
+02 00             
+test: False
+2024-05-02 01:56:32,323 requested forecast already retrived recently at 2024-05-02 01:56
+2024-05-02 01:56:32,324 weather forecast reply:
+628 -1510 8 3
+0200*02
+T 12 10 12 15 16 17 17 16*
+S  -  -  -  - .1 .1  -  -*
+P 0 0 0 2 6 5 0 0*
+C 0 0 0 0 0 0 0 1*
+W 1 1 1 1 1 1 1 1*
+D SE SE SE SE  S  S  S  S*
+2024-05-02 01:56:32,811 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************f-5787-6045-bd2d34160000&amp;adr=dewey.mtn.forecasts%40gmail.com
+2024-05-02 01:56:32,812 inreach forecast request:
+62.88, -151.04
+2438
+mb3
+04 00             
+test: False
+2024-05-02 01:56:32,813 requested forecast already retrived recently at 2024-05-02 01:56
+2024-05-02 01:56:32,813 weather forecast reply:
+628 -1510 8 3
+0400*04
+T 17 17 17 17 17 17 18 18*
+S .6  1 .9 .6  - .6 .4  -*
+P 810 8 8 7 7 7 5*
+C 0 0 0 0 0 0 0 0*
+W 1 1 1 1 1 1 1 1*
+D SE SE SE SE SE SE SE SE*
+2024-05-02 01:56:34,605 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************f-9e6a-6045-bd2d34160000&amp;adr=dewey.mtn.forecasts%40gmail.com
