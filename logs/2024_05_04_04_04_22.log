@@ -1,0 +1,55 @@
+2024-05-04 04:04:22,547 file_cache is only supported with oauth2client<4.0.0
+2024-05-04 04:04:22,663 retrieved 20 emails
+2024-05-04 04:04:24,075 found 3 new forecast request(s)
+2024-05-04 04:04:24,075 inreach forecast request:
+62.88, -151.04
+2209
+mb3
+04 00             
+test: False
+2024-05-04 04:04:24,138 getting forecast from https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=****************&lat=62.88&lon=-151.04&asl=2209&format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char
+2024-05-04 04:04:24,506 weather forecast reply:
+628 -1510 7 3
+0400*04
+T 18 20 21 20 20 25 24 21*
+S .5 .6 .4 .4 .3 .6  -  -*
+P 810 8 7 4 6 4 0*
+C 0 0 0 0 0 0 0 0*
+W 1 1 1 1 1 0 0 0*
+D SE SE SE SE SE SE SE SE*
+2024-05-04 04:04:25,143 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************a-e761-000d-3aa7581c0000&amp;adr=dewey.mtn.forecasts%40gmail.com
+2024-05-04 04:04:25,145 inreach forecast request:
+62.88, -151.04
+2209
+mb3
+05 00             
+test: False
+2024-05-04 04:04:25,145 requested forecast already retrived recently at 2024-05-04 04:04
+2024-05-04 04:04:25,146 weather forecast reply:
+628 -1510 7 3
+0500*05
+T 20 18 18 18 22 30 28 24*
+S  -  -  -  -  -  - .1  -*
+P 2 2 1 1 1 4 5 4*
+C 0 0 1 2 1 0 0 0*
+W 0 0 0 0 0 0 0 0*
+D SE  S NE NE NE NE NE NE*
+2024-05-04 04:04:25,480 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************b-0e59-000d-3aa7581c0000&amp;adr=dewey.mtn.forecasts%40gmail.com
+2024-05-04 04:04:25,482 inreach forecast request:
+62.88, -151.04
+2209
+mbd
+03             
+test: False
+2024-05-04 04:04:25,482 getting forecast from https://my.meteoblue.com/packages/trendpro-day?apikey=****************&lat=62.88&lon=-151.04&asl=2209&format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char
+2024-05-04 04:04:25,894 weather forecast reply:
+628 -1510 7 D
+03-09
+H 23 25 30 27 25 26 27
+L 17 18 18 18 14 14 17
+C  0  1  7  0  4  4  0
+S  4  3 .1  4 .9  -  2
+P10 6 6 9 7 5 9
+W 1 1 0 1 1 0 0
+% 6 6 6 6 5 4 4
+2024-05-04 04:04:26,359 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************b-6f50-000d-3aa7581c0000&amp;adr=dewey.mtn.forecasts%40gmail.com
