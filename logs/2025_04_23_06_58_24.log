@@ -1,0 +1,17 @@
+2025-04-23 06:58:24,167 file_cache is only supported with oauth2client<4.0.0
+2025-04-23 06:58:24,394 retrieved 20 emails
+2025-04-23 06:58:27,702 found 2 new forecast request(s)
+2025-04-23 06:58:27,703 inreach forecast request:
+38.11111,-107.71581
+2371
+mb3
+             
+test: True
+2025-04-23 06:58:27,703 'metadata'
+2025-04-23 06:58:27,703 inreach forecast request:
+62.950,-151.091
+4442
+mb6
+2 03             
+test: True
+2025-04-23 06:58:27,703 'metadata'
