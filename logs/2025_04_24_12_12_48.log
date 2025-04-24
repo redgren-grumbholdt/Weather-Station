@@ -1,0 +1,25 @@
+2025-04-24 12:12:48,461 file_cache is only supported with oauth2client<4.0.0
+2025-04-24 12:12:48,672 retrieved 20 emails
+2025-04-24 12:12:52,665 found 3 new forecast request(s)
+2025-04-24 12:12:52,666 inreach forecast request:
+38.11111,-107.71581
+2371
+mb3
+             
+test: False
+2025-04-24 12:12:52,666 getting forecast from https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=****************&lat=38.11111&lon=-107.71581&asl=2371&format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char
+2025-04-24 12:12:53,048 'metadata'
+2025-04-24 12:12:53,048 inreach forecast request:
+38.11111,-107.71581
+2371
+mb3
+             
+test: True
+2025-04-24 12:12:53,048 'metadata'
+2025-04-24 12:12:53,048 inreach forecast request:
+62.950,-151.091
+4442
+mb6
+2 03             
+test: True
+2025-04-24 12:12:53,048 'metadata'
