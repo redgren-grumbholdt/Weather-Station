@@ -149,6 +149,7 @@ def extract_request_from_message(msg):
 
 
 # retrieves forecast from MeteoBlue API
+# IF NEW CREDITS ARE NEEDED OR API HAS EXPIRED: refill heybendewey@gmail.com account
 def get_meteoblue_forecast(location, elev, model):
     # builds url for requested model
     if model == 'mb6':
