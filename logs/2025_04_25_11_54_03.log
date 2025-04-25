@@ -1,0 +1,44 @@
+2025-04-25 11:54:03,782 file_cache is only supported with oauth2client<4.0.0
+2025-04-25 11:54:04,039 retrieved 20 emails
+2025-04-25 11:54:09,700 found 3 new forecast request(s)
+2025-04-25 11:54:09,700 inreach forecast request:
+38.11111,-107.71581
+2371
+mb3
+             
+test: False
+2025-04-25 11:54:09,700 getting forecast from https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=****************&lat=38.11111&lon=-107.71581&asl=2371&format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char
+2025-04-25 11:54:09,977 weather forecast reply:
+381 -1077 8 3
+2511*26
+T 63 67 65 55 49* 45 43 53
+S  -  -  -  -  -*  -  -  -
+P 0 0 0 0 0* 0 0 0
+C 0 1 1 0 0* 0 0 2
+W 1 1 1 1 0* 0 0 0
+D  S  S  S  S SE* SE SE  S
+2025-04-25 11:54:10,535 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************b-5fb9-0022-484758110000&amp;adr=dewey.mtn.forecasts%40gmail.com
+2025-04-25 11:54:10,537 inreach forecast request:
+38.11111,-107.71581
+2371
+mb3
+             
+test: True
+2025-04-25 11:54:10,593 requested forecast already retrived recently at 2025-04-25 11:54
+2025-04-25 11:54:10,593 weather forecast reply:
+381 -1077 8 3
+2511*26
+T 63 67 65 55 49* 45 43 53
+S  -  -  -  -  -*  -  -  -
+P 0 0 0 0 0* 0 0 0
+C 0 1 1 0 0* 0 0 2
+W 1 1 1 1 0* 0 0 0
+D  S  S  S  S SE* SE SE  S
+2025-04-25 11:54:12,164 this forecast request is a test
+2025-04-25 11:54:12,164 inreach forecast request:
+62.950,-151.091
+4442
+mb6
+2 03             
+test: True
+2025-04-25 11:54:12,164 'metadata'
