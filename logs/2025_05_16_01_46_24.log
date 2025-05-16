@@ -1,0 +1,20 @@
+2025-05-16 01:46:24,808 file_cache is only supported with oauth2client<4.0.0
+2025-05-16 01:46:25,066 retrieved 20 emails
+2025-05-16 01:46:29,560 found 1 new forecast request(s)
+2025-05-16 01:46:29,560 inreach forecast request:
+62.88, -151.04
+2209
+mb3
+18 00             
+test: False
+2025-05-16 01:46:29,614 getting forecast from https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=****************&lat=62.88&lon=-151.04&asl=2209&format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char
+2025-05-16 01:46:30,172 weather forecast reply:
+628 -1510 7 3
+1800*18
+T 25 25 25 25 28 32 30 26*
+S .1 .4 .3 .2 .2 .1 .1  -*
+P 7 5 5 5 5 5 5 5*
+C 0 0 0 0 1 1 1 1*
+W 0 0 0 0 0 0 0 0*
+D  E SE SE  E SE  S  S  E*
+2025-05-16 01:46:30,771 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************9-065b-6045-bd2d0c370000&amp;adr=dewey.mtn.forecasts%40gmail.com
