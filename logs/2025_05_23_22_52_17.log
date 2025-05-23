@@ -1,0 +1,20 @@
+2025-05-23 22:52:17,863 file_cache is only supported with oauth2client<4.0.0
+2025-05-23 22:52:18,138 retrieved 20 emails
+2025-05-23 22:52:22,879 found 1 new forecast request(s)
+2025-05-23 22:52:22,879 inreach forecast request:
+62.960,-151.091
+4267
+mb3
+24 12             
+test: False
+2025-05-23 22:52:22,894 requested forecast already retrived recently at 2025-05-23 22:22
+2025-05-23 22:52:22,895 weather forecast reply:
+629 -1510 14 3
+2412*25
+T  2  3  3  3*  2  2  1  0
+S .2  -  -  -*  -  -  -  -
+P 4 3 3 3* 2 2 2 2
+C 1 2 1 2* 0 0 1 1
+W 0 0 0 0* 0 0 0 0
+D  S SE SE SE*  S  S  S  S
+2025-05-23 22:52:23,409 'NoneType' object has no attribute 'get'
