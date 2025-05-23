@@ -1,0 +1,66 @@
+2025-05-23 18:20:16,142 file_cache is only supported with oauth2client<4.0.0
+2025-05-23 18:20:16,357 retrieved 20 emails
+2025-05-23 18:20:19,661 found 4 new forecast request(s)
+2025-05-23 18:20:19,661 inreach forecast request:
+62.960,-151.091
+4267
+mb6
+23 12             
+test: False
+2025-05-23 18:20:19,667 getting forecast from https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=****************&lat=62.960&lon=-151.091&asl=4267&format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char
+2025-05-23 18:20:19,939 weather forecast reply:
+629 -1510 14 6
+2312*25
+T  2  3*  3  1  2  3*  2  1
+S  - .1* .3 .4 .2  -*  -  -
+P 0 2* 3 3 4 3* 2 2
+C 2 3* 0 2 3 4* 0 2
+W 0 0* 0 0 0 0* 0 0
+D E N* NNESESE*SESE
+2025-05-23 18:20:20,354 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************6-3d6d-000d-3aa7a83a0000&amp;adr=dewey.mtn.forecasts%40gmail.com
+2025-05-23 18:20:20,355 inreach forecast request:
+62.960,-151.091
+4267
+mbd
+20FW:              
+test: False
+2025-05-23 18:20:20,355 getting forecast from https://my.meteoblue.com/packages/trendpro-day?apikey=****************&lat=62.960&lon=-151.091&asl=4267&format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char
+2025-05-23 18:20:20,775 weather forecast reply:
+629 -1510 14 D
+Cannot retrieve the forecast for the days requested. Current available daily forecast is for 23-05
+2025-05-23 18:20:21,348 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************6-2033-000d-3aa7a83a0000&amp;adr=dewey.mtn.forecasts%40gmail.com
+2025-05-23 18:20:21,350 inreach forecast request:
+62.960,-151.091
+4267
+mb3
+23 12             
+test: False
+2025-05-23 18:20:21,350 getting forecast from https://my.meteoblue.com/packages/basic-1h_clouds-1h?apikey=****************&lat=62.960&lon=-151.091&asl=4267&format=json&temperature=F&windspeed=mph&precipitationamount=inch&winddirection=2char
+2025-05-23 18:20:21,541 weather forecast reply:
+629 -1510 14 3
+2312*24
+T  1  2  3  3*  3  3  2  1
+S  -  -  - .1* .2 .2 .2 .2
+P 0 0 0 2* 3 3 3 3
+C 1 1 1 1* 0 0 1 1
+W 0 0 0 0* 0 0 0 0
+D  E  E  N  N*  N  N  N  E
+2025-05-23 18:20:21,864 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************b-cc77-000d-3aa780380000&amp;adr=dewey.mtn.forecasts%40gmail.com
+2025-05-23 18:20:21,865 inreach forecast request:
+62.960,-151.091
+4267
+mbd
+23             
+test: False
+2025-05-23 18:20:21,866 requested forecast already retrived recently at 2025-05-23 18:20
+2025-05-23 18:20:21,866 weather forecast reply:
+629 -1510 14 D
+23-29
+H  3  3  2  6  5  5  2
+L -4  1  0  1  2  0 -3
+C 10 13  6  2  0  0  0
+S .2  1 .2  2  3 .4  4
+P 2 4 5 6 8 7 8
+W 0 0 0 0 1 1 1
+% 7 6 5 3 4 3 4
+2025-05-23 18:20:22,178 sending via https://us0.explore.garmin.com/textmessage/txtmsg?extId=************b-ac69-000d-3aa780380000&amp;adr=dewey.mtn.forecasts%40gmail.com
